@@ -1,118 +1,582 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Santino Musse">
-    <meta name="description" content="Escape Libre: tienda online de partes de autos para modificaciones. Escapes, admisión, suspensión, frenos y más.">
-    <meta name="keywords" content="partes de autos, modificaciones, tuning, escapes, suspensión, frenos, accesorios">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="author"
+        content="Santino Mussetti - Aghassi Mingorance"
+    >
+
+    <meta
+        name="description"
+        content="Escape Libre: tienda online de partes de autos para modificaciones. Escapes, admisión, suspensión, frenos, reprogramación y accesorios."
+    >
+
+    <meta
+        name="keywords"
+        content="partes de autos, modificaciones, tuning, escapes, suspensión, frenos, accesorios"
+    >
+
     <title>Escape Libre | Tu auto. Sin límites</title>
-    <link rel="icon" type="image/png" href="imagenes/favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="imagenes/favicon.png"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
 </head>
+
+
 <body>
+
     <div id="contenedor">
 
+
+        <!-- HEADER -->
+
         <header id="cabecera">
+
             <div class="barra-superior">
-                <h1>
+
+                <h1 class="logo">
+
                     <a href="index.html">
-                        <img src="imagenes/logo-escape-libre.png" alt="Escape Libre, tu auto sin límites">
+
+                        <img
+                            src="imagenes/logo-escape-libre.png"
+                            alt="Escape Libre"
+                        >
+
                     </a>
+
                 </h1>
+
+
                 <div class="buscador">
-                    <label class="solo-lectores" for="busqueda">Buscar productos, marcas o autos</label>
-                    <input type="text" id="busqueda" name="busqueda" placeholder="Buscar productos, marcas, autos...">
-                    <button type="button">Buscar</button>
+
+                    <label
+                        class="solo-lectores"
+                        for="busqueda"
+                    >
+                        Buscar productos, marcas o autos
+                    </label>
+
+                    <input
+                        type="text"
+                        id="busqueda"
+                        name="busqueda"
+                        placeholder="Buscar productos, marcas, autos..."
+                    >
+
+                    <button type="button">
+                        Buscar
+                    </button>
+
                 </div>
+
+
                 <div class="acciones">
-                    <a href="contacto.html">Mi cuenta</a>
-                    <a href="carrito.html">Carrito <span id="contador-carrito">0</span></a>
+
+                    <a href="contacto.html">
+                        Mi cuenta
+                    </a>
+
+                    <a href="carrito.html">
+
+                        Carrito
+
+                        <span id="contador-carrito">
+                            0
+                        </span>
+
+                    </a>
+
                 </div>
+
             </div>
+
+
             <nav id="menu">
-                <a href="catalogo.html">Todas las categorías</a>
-                <a href="catalogo.html">Marcas</a>
-                <a href="catalogo.html">Por vehículo</a>
-                <a href="catalogo.html">Ofertas</a>
-                <a href="catalogo.html">Novedades</a>
-                <a href="contacto.html">Contacto</a>
+
+                <a href="catalogo.html">
+                    Todas las categorías
+                </a>
+
+                <a href="catalogo.html">
+                    Marcas
+                </a>
+
+                <a href="catalogo.html">
+                    Por vehículo
+                </a>
+
+                <a href="catalogo.html">
+                    Ofertas
+                </a>
+
+                <a href="catalogo.html">
+                    Novedades
+                </a>
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
             </nav>
+
         </header>
 
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+
         <main>
+
+
+            <!-- PORTADA -->
+
             <section id="portada">
+
                 <div class="portada-imagen">
-                    <img src="imagenes/banner-escapes-portada.jpg" alt="Escape deportivo de un auto negro con cuatro salidas">
+
+                    <img
+                        src="imagenes/banner-escapes-portada.jpg"
+                        alt="Escape deportivo de un auto"
+                    >
+
                 </div>
+
+
+                <div class="portada-overlay"></div>
+
+
                 <div class="portada-texto">
-                    <h2>El sonido de tu <span class="resaltado">pasión</span></h2>
-                    <p>Escapes y performance en un solo lugar</p>
-                    <a class="boton" href="catalogo.html">Ver productos</a>
+
+                    <p class="portada-subtitulo">
+                        PERFORMANCE AUTOMOTRIZ
+                    </p>
+
+                    <h2>
+                        El sonido de tu
+                        <span class="resaltado">
+                            pasión
+                        </span>
+                    </h2>
+
+                    <p class="portada-descripcion">
+                        Escapes y performance en un solo lugar
+                    </p>
+
+                    <a
+                        class="boton"
+                        href="catalogo.html"
+                    >
+                        Ver productos
+                    </a>
+
                 </div>
+
             </section>
+
+
+
+            <!-- BENEFICIOS -->
 
             <section id="beneficios">
+
                 <div class="beneficio">
-                    <h3>Envíos a todo el país</h3>
-                    <p>Rápidos y seguros</p>
+
+                    <div class="beneficio-icono">
+                        🚚
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Envíos a todo el país
+                        </h3>
+
+                        <p>
+                            Rápidos y seguros
+                        </p>
+
+                    </div>
+
                 </div>
+
+
                 <div class="beneficio">
-                    <h3>Hasta 12 cuotas</h3>
-                    <p>Sin interés</p>
+
+                    <div class="beneficio-icono">
+                        💳
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Hasta 12 cuotas
+                        </h3>
+
+                        <p>
+                            Sin interés
+                        </p>
+
+                    </div>
+
                 </div>
+
+
                 <div class="beneficio">
-                    <h3>Compra protegida</h3>
-                    <p>Tu seguridad es nuestra prioridad</p>
+
+                    <div class="beneficio-icono">
+                        🔒
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Compra protegida
+                        </h3>
+
+                        <p>
+                            Tu seguridad es nuestra prioridad
+                        </p>
+
+                    </div>
+
                 </div>
+
+
                 <div class="beneficio">
-                    <h3>Asesoramiento experto</h3>
-                    <p>Estamos para ayudarte</p>
+
+                    <div class="beneficio-icono">
+                        🛠️
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Asesoramiento experto
+                        </h3>
+
+                        <p>
+                            Estamos para ayudarte
+                        </p>
+
+                    </div>
+
                 </div>
+
             </section>
+
+
+
+            <!-- CATEGORIAS -->
 
             <section id="categorias">
+
                 <div class="encabezado-seccion">
-                    <h2>Categorías destacadas</h2>
-                    <a class="ver-todas" href="catalogo.html">Ver todas</a>
+
+                    <div>
+
+                        <p class="etiqueta-seccion">
+                            ENCONTRÁ LO QUE BUSCÁS
+                        </p>
+
+                        <h2>
+                            Categorías destacadas
+                        </h2>
+
+                    </div>
+
+
+                    <a
+                        class="ver-todas"
+                        href="catalogo.html"
+                    >
+                        Ver todas →
+                    </a>
+
                 </div>
+
+
+
                 <div class="categorias-lista">
-                    <a class="categoria" href="catalogo.html">
-                        <img src="imagenes/Categoria Escape.jpeg" alt="Colas de escape de acero inoxidable">
-                        <h3>Escapes</h3>
+
+
+                    <!-- ESCAPES -->
+
+                    <a
+                        class="categoria"
+                        href="catalogo.html"
+                    >
+
+                        <img
+                            src="imagenes/categoria-escape.jpg"
+                            alt="Escapes deportivos"
+                        >
+
+                        <div class="categoria-sombra"></div>
+
+                        <div class="categoria-contenido">
+
+                            <h3>
+                                Escapes
+                            </h3>
+
+                            <p>
+                                Ver productos →
+                            </p>
+
+                        </div>
+
                     </a>
-                    <a class="categoria" href="catalogo.html">
-                        <img src="imagenes/categoria-admision.jpg" alt="Filtro de aire deportivo rojo">
-                        <h3>Admisión</h3>
+
+
+
+                    <!-- ADMISION -->
+
+                    <a
+                        class="categoria"
+                        href="catalogo.html"
+                    >
+
+                        <img
+                            src="imagenes/categoria-admision.jpg"
+                            alt="Admisión deportiva"
+                        >
+
+                        <div class="categoria-sombra"></div>
+
+                        <div class="categoria-contenido">
+
+                            <h3>
+                                Admisión
+                            </h3>
+
+                            <p>
+                                Ver productos →
+                            </p>
+
+                        </div>
+
                     </a>
-                    <a class="categoria" href="catalogo.html">
-                        <img src="imagenes/categoria-suspension.jpg" alt="Amortiguador coilover con resorte amarillo">
-                        <h3>Suspensión</h3>
+
+
+
+                    <!-- SUSPENSION -->
+
+                    <a
+                        class="categoria"
+                        href="catalogo.html"
+                    >
+
+                        <img
+                            src="imagenes/categoria-suspension.jpg"
+                            alt="Suspensión deportiva"
+                        >
+
+                        <div class="categoria-sombra"></div>
+
+                        <div class="categoria-contenido">
+
+                            <h3>
+                                Suspensión
+                            </h3>
+
+                            <p>
+                                Ver productos →
+                            </p>
+
+                        </div>
+
                     </a>
-                    <a class="categoria" href="catalogo.html">
-                        <img src="imagenes/categoria-frenos.jpg" alt="Disco de freno con pinza roja">
-                        <h3>Frenos</h3>
+
+
+
+                    <!-- FRENOS -->
+
+                    <a
+                        class="categoria"
+                        href="catalogo.html"
+                    >
+
+                        <img
+                            src="imagenes/categoria-frenos.jpg"
+                            alt="Sistema de frenos deportivos"
+                        >
+
+                        <div class="categoria-sombra"></div>
+
+                        <div class="categoria-contenido">
+
+                            <h3>
+                                Frenos
+                            </h3>
+
+                            <p>
+                                Ver productos →
+                            </p>
+
+                        </div>
+
                     </a>
-                    <a class="categoria" href="catalogo.html">
-                        <img src="imagenes/categoria-reprogramacion.jpg" alt="Módulo de reprogramación de motor">
-                        <h3>Reprogramación</h3>
+
+
+
+                    <!-- REPROGRAMACION -->
+
+                    <a
+                        class="categoria"
+                        href="catalogo.html"
+                    >
+
+                        <img
+                            src="imagenes/categoria-reprogramacion.jpg"
+                            alt="Reprogramación de motor"
+                        >
+
+                        <div class="categoria-sombra"></div>
+
+                        <div class="categoria-contenido">
+
+                            <h3>
+                                Reprogramación
+                            </h3>
+
+                            <p>
+                                Ver productos →
+                            </p>
+
+                        </div>
+
                     </a>
-                    <a class="categoria" href="catalogo.html">
-                        <img src="imagenes/categoria-accesorios.jpg" alt="Volante deportivo de cuero">
-                        <h3>Accesorios</h3>
+
+
+
+                    <!-- ACCESORIOS -->
+
+                    <a
+                        class="categoria"
+                        href="catalogo.html"
+                    >
+
+                        <img
+                            src="imagenes/categoria-accesorios.jpg"
+                            alt="Accesorios para autos"
+                        >
+
+                        <div class="categoria-sombra"></div>
+
+                        <div class="categoria-contenido">
+
+                            <h3>
+                                Accesorios
+                            </h3>
+
+                            <p>
+                                Ver productos →
+                            </p>
+
+                        </div>
+
                     </a>
+
+
                 </div>
+
             </section>
+
+
         </main>
 
+
+
+        <!-- FOOTER -->
+
         <footer id="pie">
-            <p>Escape Libre &copy; 2026. Proyecto de Taller de Desarrollo Web.</p>
-            <p>Autores: Santino Mussetti - Aghassi Mingorance</p>
+
+            <div class="footer-contenido">
+
+                <div>
+
+                    <h3>
+                        Escape Libre
+                    </h3>
+
+                    <p>
+                        Tu auto. Sin límites.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <a href="catalogo.html">
+                        Productos
+                    </a>
+
+                    <a href="contacto.html">
+                        Contacto
+                    </a>
+
+                    <a href="carrito.html">
+                        Carrito
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-inferior">
+
+                <p>
+                    Escape Libre &copy; 2026.
+                    Proyecto de Taller de Desarrollo Web.
+                </p>
+
+                <p>
+                    Autores:
+                    Santino Mussetti - Aghassi Mingorance
+                </p>
+
+            </div>
+
         </footer>
 
+
     </div>
+
 </body>
+
 </html>
