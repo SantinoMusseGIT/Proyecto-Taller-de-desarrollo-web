@@ -29,6 +29,29 @@
         </nav>
         <main>
             <h2>Catálogo de productos</h2>
+            <section id="filtros">
+                <h3>Filtros</h3>
+                <label for="categoria">Categoría</label>
+                <select id="categoria" name="categoria">
+                    <option value="">Todas las categorías</option>
+                    <option value="escapes">Escapes</option>
+                    <option value="admision">Admisión</option>
+                    <option value="suspension">Suspensión</option>
+                    <option value="frenos">Frenos</option>
+                </select>
+                <label for="busqueda-producto">Buscar producto</label>
+                <input
+                    type="text"
+                    id="busqueda-producto"
+                    name="busquedaProducto"
+                    placeholder="Ejemplo: escape deportivo"
+                    size="30"
+                    maxlength="50"
+                >
+                <button type="button" id="aplicar-filtros">
+                    Aplicar filtros
+                </button>
+            </section>
             <section id="productos">
                 <h3>Productos disponibles</h3>
             </section>
