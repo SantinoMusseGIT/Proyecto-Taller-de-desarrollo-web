@@ -1197,3 +1197,9 @@ input {
     object-fit: cover;
     border-radius: 6px;
 }
+
+.productos-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
+    gap: 24px;
+}
