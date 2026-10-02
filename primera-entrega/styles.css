@@ -1221,3 +1221,23 @@ input {
     text-transform: uppercase;
     cursor: pointer;
 }
+
+.catalogo-contenido {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.catalogo-principal {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 32px 24px;
+}
+
+@media (max-width: 700px) {
+    .catalogo-contenido {
+        grid-template-columns: 1fr;
+    }
+}

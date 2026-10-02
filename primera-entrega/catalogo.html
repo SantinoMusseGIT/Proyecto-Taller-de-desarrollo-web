@@ -27,62 +27,64 @@
                 </li>
             </ul>
         </nav>
-        <main>
+        <main class="catalogo-principal">
             <h2>Catálogo de productos</h2>
-            <section id="filtros">
-                <h3>Filtros</h3>
-                <label for="categoria">Categoría</label>
-                <select id="categoria" name="categoria">
-                    <option value="">Todas las categorías</option>
-                    <option value="escapes">Escapes</option>
-                    <option value="admision">Admisión</option>
-                    <option value="suspension">Suspensión</option>
-                    <option value="frenos">Frenos</option>
-                </select>
-                <label for="busqueda-producto">Buscar producto</label>
-                <input
-                    type="text"
-                    id="busqueda-producto"
-                    name="busquedaProducto"
-                    placeholder="Ejemplo: escape deportivo"
-                    size="30"
-                    maxlength="50"
-                >
-                <button type="button" id="aplicar-filtros">
-                    Aplicar filtros
-                </button>
-            </section>
-            <section id="productos">
-                <h3>Productos disponibles</h3>
-                <div class="productos-lista">
-                    <article class="producto">
-                        <img
-                            class="producto-imagen"
-                            src="imagenes/Categoria Escape.png"
-                            alt="Sistema de escape deportivo"
-                        >
-                        <h4>Escape deportivo</h4>
-                        <p>Escape de alto rendimiento para mejorar el sonido del vehículo.</p>
-                        <p class="producto-precio">$850.000</p>
-                        <button class="producto-boton" type="button">
-                            Agregar al carrito
-                        </button>
-                    </article>
-                    <article class="producto">
-                        <img
-                            class="producto-imagen"
-                            src="imagenes/Categoria Suspension.png"
-                            alt="Kit de suspensión deportiva"
-                        >
-                        <h4>Suspensión deportiva</h4>
-                        <p>Kit de suspensión para mejorar la estabilidad y reducir la altura del vehículo.</p>
-                        <p class="producto-precio">$1.200.000</p>
-                        <button class="producto-boton" type="button">
-                            Agregar al carrito
-                        </button>
-                    </article>
-                </div>
-            </section>
+            <div class="catalogo-contenido">
+                <section id="filtros">
+                    <h3>Filtros</h3>
+                    <label for="categoria">Categoría</label>
+                    <select id="categoria" name="categoria">
+                        <option value="">Todas las categorías</option>
+                        <option value="escapes">Escapes</option>
+                        <option value="admision">Admisión</option>
+                        <option value="suspension">Suspensión</option>
+                        <option value="frenos">Frenos</option>
+                    </select>
+                    <label for="busqueda-producto">Buscar producto</label>
+                    <input
+                        type="text"
+                        id="busqueda-producto"
+                        name="busquedaProducto"
+                        placeholder="Ejemplo: escape deportivo"
+                        size="30"
+                        maxlength="50"
+                    >
+                    <button type="button" id="aplicar-filtros">
+                        Aplicar filtros
+                    </button>
+                </section>
+                <section id="productos">
+                    <h3>Productos disponibles</h3>
+                    <div class="productos-lista">
+                        <article class="producto">
+                            <img
+                                class="producto-imagen"
+                                src="imagenes/Categoria Escape.png"
+                                alt="Sistema de escape deportivo"
+                            >
+                            <h4>Escape deportivo</h4>
+                            <p>Escape de alto rendimiento para mejorar el sonido del vehículo.</p>
+                            <p class="producto-precio">$850.000</p>
+                            <button class="producto-boton" type="button">
+                                Agregar al carrito
+                            </button>
+                        </article>
+                        <article class="producto">
+                            <img
+                                class="producto-imagen"
+                                src="imagenes/Categoria Suspension.png"
+                                alt="Kit de suspensión deportiva"
+                            >
+                            <h4>Suspensión deportiva</h4>
+                            <p>Kit de suspensión para mejorar la estabilidad y reducir la altura del vehículo.</p>
+                            <p class="producto-precio">$1.200.000</p>
+                            <button class="producto-boton" type="button">
+                                Agregar al carrito
+                            </button>
+                        </article>
+                    </div>
+                </section>
+            </div>
         </main>
         <footer>
             <p>Escape Libre &copy; 2026</p>
