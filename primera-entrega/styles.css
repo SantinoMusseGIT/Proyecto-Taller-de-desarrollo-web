@@ -1293,6 +1293,16 @@ input {
     margin-bottom: 16px;
 }
 
+.producto-boton,
+#aplicar-filtros {
+    transition: background-color 0.2s;
+}
+
+.producto-boton:hover,
+#aplicar-filtros:hover {
+    background-color: #e6bf00;
+}
+
 @media (max-width: 700px) {
     .catalogo-contenido {
         grid-template-columns: 1fr;
