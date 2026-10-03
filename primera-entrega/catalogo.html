@@ -50,14 +50,14 @@
                         size="30"
                         maxlength="50"
                     >
-                    <button type="button" id="aplicar-filtros">
+                    <button type="button" id="aplicar-filtros" onclick="aplicarFiltros()">
                         Aplicar filtros
                     </button>
                 </section>
                 <section id="productos">
                     <h3>Productos disponibles</h3>
                     <div class="productos-lista">
-                        <article class="producto">
+                        <article class="producto" data-categoria="escapes">
                             <img
                                 class="producto-imagen"
                                 src="imagenes/Categoria Escape.png"
@@ -70,7 +70,7 @@
                                 Agregar al carrito
                             </button>
                         </article>
-                        <article class="producto">
+                        <article class="producto" data-categoria="suspension">
                             <img
                                 class="producto-imagen"
                                 src="imagenes/Categoria Suspension.png"
