@@ -2,6 +2,7 @@ const selectorCategoria = document.getElementById("categoria");
 const campoBusqueda = document.getElementById("busqueda-producto");
 const productos = document.querySelectorAll(".producto");
 const contadorResultados = document.getElementById("cantidad-resultados");
+const mensajeSinResultados = document.getElementById("sin-resultados");
 
 /**
  * Filtra los productos según la categoría y el texto ingresado.
@@ -48,4 +49,6 @@ const aplicarFiltros = () => {
 
     contadorResultados.textContent =
         `${cantidadVisible} ${palabraResultado}`;
+
+    mensajeSinResultados.hidden = cantidadVisible !== 0;
 };

@@ -1311,6 +1311,14 @@ input {
     text-transform: none;
 }
 
+#sin-resultados {
+    margin-bottom: 16px;
+    padding: 16px;
+    border-left: 4px solid #ffd600;
+    background-color: #fff8cc;
+    color: #4d4d4d;
+}
+
 @media (max-width: 700px) {
     .catalogo-contenido {
         grid-template-columns: 1fr;
