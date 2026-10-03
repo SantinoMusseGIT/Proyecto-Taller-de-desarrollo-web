@@ -17,6 +17,10 @@
     <body>
         <header>
             <h1>Escape Libre</h1>
+            <p class="carrito-resumen">
+                Productos en el carrito:
+                <span id="cantidad-carrito" aria-live="polite">0</span>
+            </p>
         </header>
         <nav>
             <ul>
@@ -74,7 +78,7 @@
                             <h4>Escape deportivo</h4>
                             <p class="producto-descripcion">Escape de alto rendimiento para mejorar el sonido del vehículo.</p>
                             <p class="producto-precio">$850.000</p>
-                            <button class="producto-boton" type="button">
+                            <button class="producto-boton" type="button" onclick="agregarAlCarrito(this)">
                                 Agregar al carrito
                             </button>
                         </article>
@@ -87,7 +91,7 @@
                             <h4>Suspensión deportiva</h4>
                             <p class="producto-descripcion">Kit de suspensión para mejorar la estabilidad y reducir la altura del vehículo.</p>
                             <p class="producto-precio">$1.200.000</p>
-                            <button class="producto-boton" type="button">
+                            <button class="producto-boton" type="button" onclick="agregarAlCarrito(this)">
                                 Agregar al carrito
                             </button>
                         </article>

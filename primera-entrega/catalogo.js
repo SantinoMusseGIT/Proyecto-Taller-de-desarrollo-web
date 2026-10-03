@@ -3,6 +3,8 @@ const campoBusqueda = document.getElementById("busqueda-producto");
 const productos = document.querySelectorAll(".producto");
 const contadorResultados = document.getElementById("cantidad-resultados");
 const mensajeSinResultados = document.getElementById("sin-resultados");
+const contadorCarrito = document.getElementById("cantidad-carrito");
+let cantidadCarrito = 0;
 
 /**
  * Filtra los productos según la categoría y el texto ingresado.
@@ -51,4 +53,23 @@ const aplicarFiltros = () => {
         `${cantidadVisible} ${palabraResultado}`;
 
     mensajeSinResultados.hidden = cantidadVisible !== 0;
+};
+
+/**
+ * Agrega un producto al contador del carrito.
+ * @method agregarAlCarrito
+ * @param {HTMLButtonElement} boton - Botón del producto seleccionado.
+ * @return {void}
+ */
+const agregarAlCarrito = (boton) => {
+    const tarjetaProducto = boton.closest(".producto");
+    const nombreProducto = tarjetaProducto
+        .querySelector("h4")
+        .textContent
+        .trim();
+
+    cantidadCarrito += 1;
+    contadorCarrito.textContent = cantidadCarrito;
+
+    alert(`${nombreProducto} fue agregado al carrito.`);
 };
