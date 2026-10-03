@@ -1303,6 +1303,14 @@ input {
     background-color: #e6bf00;
 }
 
+#cantidad-resultados {
+    margin-left: 8px;
+    color: #4d4d4d;
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-transform: none;
+}
+
 @media (max-width: 700px) {
     .catalogo-contenido {
         grid-template-columns: 1fr;
