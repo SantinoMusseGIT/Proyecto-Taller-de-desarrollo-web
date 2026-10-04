@@ -4,8 +4,9 @@ const productos = document.querySelectorAll(".producto");
 const contadorResultados = document.getElementById("cantidad-resultados");
 const mensajeSinResultados = document.getElementById("sin-resultados");
 const contadorCarrito = document.getElementById("cantidad-carrito");
+const contadorTotalCarrito = document.getElementById("total-carrito");
 let cantidadCarrito = 0;
-
+let totalCarrito = 0;
 /**
  * Filtra los productos según la categoría y el texto ingresado.
  * @method aplicarFiltros
@@ -56,7 +57,7 @@ const aplicarFiltros = () => {
 };
 
 /**
- * Agrega un producto al contador del carrito.
+ * Agrega un producto al contador del carrito y actualiza la cantidad y el precio total.
  * @method agregarAlCarrito
  * @param {HTMLButtonElement} boton - Botón del producto seleccionado.
  * @return {void}
@@ -68,8 +69,14 @@ const agregarAlCarrito = (boton) => {
         .textContent
         .trim();
 
+    const precioProducto = Number(tarjetaProducto.dataset.precio);
+
     cantidadCarrito += 1;
     contadorCarrito.textContent = cantidadCarrito;
+
+    totalCarrito += precioProducto;
+    contadorTotalCarrito.textContent =
+        totalCarrito.toLocaleString("es-AR");
 
     alert(`${nombreProducto} fue agregado al carrito.`);
 };
