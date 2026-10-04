@@ -78,3 +78,14 @@ const iniciarSesion = () => {
     alert("Los datos son válidos. Inicio de sesión simulado.");
     formularioLogin.reset();
 };
+
+/**
+ * Informa al usuario sobre el estado del registro de cuentas.
+ * @method informarRegistro
+ * @return {void}
+ */
+const informarRegistro = () => {
+    alert(
+        "El registro de cuentas es una demostración y requiere conexión con un servidor."
+    );
+};
