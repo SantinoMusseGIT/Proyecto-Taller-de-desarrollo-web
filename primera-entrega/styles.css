@@ -189,7 +189,7 @@ input {
 
     border: none;
 
-    background-color: #e62329;
+    background-color: #ffe600;
 
     color: white;
 
@@ -208,7 +208,7 @@ input {
 
 .buscador button:hover {
 
-    background-color: #c8181e;
+    background-color: #f0d400;
 
 }
 
@@ -246,7 +246,7 @@ input {
 
 .acciones a:hover {
 
-    color: #e62329;
+    color: #ffe600;
 
 }
 
@@ -269,7 +269,7 @@ input {
 
     border-radius: 50%;
 
-    background-color: #e62329;
+    background-color: #ffe600;
 
     color: white;
 
@@ -329,7 +329,7 @@ input {
 
 #menu a:hover {
 
-    color: #e62329;
+    color: #ffe600;
 
 }
 
@@ -348,7 +348,7 @@ input {
 
     height: 2px;
 
-    background-color: #e62329;
+    background-color: #ffe600;
 
     transition: width 0.25s;
 
@@ -445,7 +445,7 @@ input {
 
     margin-bottom: 10px;
 
-    color: #e62329;
+    color: #ffe600;
 
     font-size: 14px;
 
@@ -477,7 +477,7 @@ input {
 
     display: block;
 
-    color: #e62329;
+    color: #ffe600;
 
 }
 
@@ -499,7 +499,7 @@ input {
 
     padding: 15px 30px;
 
-    background-color: #e62329;
+    background-color: #ffe600;
 
     color: white;
 
@@ -647,7 +647,7 @@ input {
 
     margin-bottom: 5px;
 
-    color: #e62329;
+    color: #ffe600;
 
     font-size: 13px;
 
@@ -673,7 +673,7 @@ input {
 
 .ver-todas {
 
-    color: #e62329;
+    color: #ffe600;
 
     font-weight: 700;
 
@@ -684,7 +684,7 @@ input {
 
 .ver-todas:hover {
 
-    color: #b91419;
+    color: #f0d400;
 
 }
 
@@ -892,7 +892,7 @@ input {
 
 .footer-links a:hover {
 
-    color: #e62329;
+    color: #ffe600;
 
 }
 
@@ -1278,7 +1278,7 @@ input {
 }
 
 .eliminar:hover {
-    color: #b00020;
+    color: #f0d400;
 }
 
 #resumen {
