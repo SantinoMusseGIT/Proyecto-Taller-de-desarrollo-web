@@ -69,7 +69,7 @@
                         </article>
 
                         <article class="producto-carrito" id="item-downpipe" data-precio="750000">
-                            <img src="imagenes/Categoria Escape.png" alt="Downpipe de acero inoxidable">
+                            <img src="imagenes/categoria-escapes.jpg" alt="Downpipe de acero inoxidable">
                             <div class="producto-datos">
                                 <h3>Downpipe HKS</h3>
                                 <p class="producto-precio">$ 750.000</p>
@@ -84,7 +84,7 @@
                         </article>
 
                         <article class="producto-carrito" id="item-discos" data-precio="600000">
-                            <img src="imagenes/Categoria Frenos.png" alt="Disco de freno con pinza roja">
+                            <img src="imagenes/categoria-frenos.jpg" alt="Disco de freno con pinza roja">
                             <div class="producto-datos">
                                 <h3>Discos de freno Brembo</h3>
                                 <p class="producto-precio">$ 600.000</p>
@@ -101,11 +101,37 @@
                         <p id="carrito-vacio" class="oculto">Tu carrito está vacío. <a href="catalogo.html">Ver el catálogo</a></p>
                     </section>
 
+                    <aside id="resumen">
+                        <h3>Resumen de compra</h3>
+                        <div class="fila-resumen">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$ 0</span>
+                        </div>
+                        <div class="fila-resumen">
+                            <span>Envío</span>
+                            <span id="envio">A calcular</span>
+                        </div>
+                        <div class="calculo-envio">
+                            <label for="codigo-postal">Código postal</label>
+                            <div>
+                                <input type="text" id="codigo-postal" maxlength="4" inputmode="numeric" placeholder="Ej: 5000">
+                                <button type="button" class="boton-secundario" onclick="calcularEnvio()">Calcular envío</button>
+                            </div>
+                        </div>
+                        <div class="fila-resumen fila-total">
+                            <span>Total</span>
+                            <span id="total">$ 0</span>
+                        </div>
+                        <button type="button" class="boton" onclick="finalizarCompra()">Finalizar compra</button>
+                        <a class="seguir" href="catalogo.html">&larr; Seguir comprando</a>
+                    </aside>
+                </div>
+            </div>
         </main>
 
         <footer id="pie">
             <p>Escape Libre &copy; 2026. Proyecto de Taller de Desarrollo Web.</p>
-            <p>Autores: Santino Mussetti - Aghassi Mingorance</p>
+            <p>Autores: Santino Musse</p>
         </footer>
 
     </div>
