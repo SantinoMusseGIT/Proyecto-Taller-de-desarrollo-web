@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Santino Mussetti - Aghassi Mingorance" />
+    <meta
+      name="description"
+      content="Página de contacto e inicio de sesión de Escape Libre."
+    />
+    <meta
+      name="keywords"
+      content="contacto, cuenta, usuario, autopartes, Escape Libre"
+    />
+
+    <title>Contacto y Mi cuenta | Escape Libre</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <script src="Funciones.js" defer></script>
+    <script src="contacto.js" defer></script>
+  </head>
+
+  <body>
+    <div id="contenedor">
+      <header id="cabecera">
+        <div class="barra-superior">
+          <h1 class="logo">
+            <a href="index.html">
+              <img src="imagenes/logo-escape-libre.png" alt="Escape Libre" />
+            </a>
+          </h1>
+
+          <div class="buscador">
+            <label class="solo-lectores" for="busqueda">
+              Buscar productos, marcas o autos
+            </label>
+
+            <input
+              type="text"
+              id="busqueda"
+              name="busqueda"
+              placeholder="Buscar productos, marcas, autos..."
+            />
+
+            <button type="button" onclick="realizarBusqueda()">Buscar</button>
+          </div>
+
+          <div class="acciones">
+            <a href="contacto.html"> Mi cuenta </a>
+
+            <a href="carrito.html">
+              Carrito
+
+              <span id="contador-carrito"> 0 </span>
+            </a>
+          </div>
+        </div>
+
+        <nav id="menu">
+          <a href="catalogo.html"> Todas las categorías </a>
+
+          <a href="catalogo.html"> Marcas </a>
+
+          <a href="catalogo.html"> Por vehículo </a>
+
+          <a href="catalogo.html"> Ofertas </a>
+
+          <a href="catalogo.html"> Novedades </a>
+
+          <a href="contacto.html"> Contacto </a>
+        </nav>
+      </header>
+      <main class="contacto-principal">
+        <h2>Contacto y Mi cuenta</h2>
+
+        <div class="contacto-columnas">
+          <section class="contacto-seccion">
+            <h3>Contacto</h3>
+            <h4>¿Hablamos?</h4>
+          </section>
+
+          <section class="cuenta-seccion">
+            <h3>Mi cuenta</h3>
+            <h4>Iniciar sesión</h4>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
