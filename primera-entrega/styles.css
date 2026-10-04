@@ -1334,6 +1334,10 @@ input {
     font-weight: 700;
     text-align: center;
 }
+.carrito-total {
+    margin-top: 8px;
+    font-weight: 700;
+}
 
 @media (max-width: 700px) {
     .catalogo-contenido {
