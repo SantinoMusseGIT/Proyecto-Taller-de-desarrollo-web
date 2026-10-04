@@ -59,6 +59,31 @@
                                 <h3>Filtro de aire K&amp;N</h3>
                                 <p class="producto-precio">$ 120.000</p>
                             </div>
+                            <div class="cantidad">
+                                <button type="button" onclick="cambiarCantidad('filtro', -1)" aria-label="Restar una unidad de Filtro de aire K&amp;N">-</button>
+                                <label class="solo-lectores" for="cantidad-filtro">Cantidad de Filtro de aire K&amp;N</label>
+                                <input type="text" id="cantidad-filtro" value="1" inputmode="numeric" onchange="validarCantidad('filtro')">
+                                <button type="button" onclick="cambiarCantidad('filtro', 1)" aria-label="Sumar una unidad de Filtro de aire K&amp;N">+</button>
+                            </div>
+                            <button type="button" class="eliminar" onclick="eliminarProducto('filtro')" aria-label="Eliminar Filtro de aire K&amp;N del carrito">Eliminar</button>
+                        </article>
+
+                        <article class="producto-carrito" id="item-downpipe" data-precio="750000">
+                            <img src="imagenes/categoria-escapes.jpg" alt="Downpipe de acero inoxidable">
+                            <div class="producto-datos">
+                                <h3>Downpipe HKS</h3>
+                                <p class="producto-precio">$ 750.000</p>
+                            </div>
+                            <div class="cantidad">
+                                <button type="button" onclick="cambiarCantidad('downpipe', -1)" aria-label="Restar una unidad de Downpipe HKS">-</button>
+                                <label class="solo-lectores" for="cantidad-downpipe">Cantidad de Downpipe HKS</label>
+                                <input type="text" id="cantidad-downpipe" value="1" inputmode="numeric" onchange="validarCantidad('downpipe')">
+                                <button type="button" onclick="cambiarCantidad('downpipe', 1)" aria-label="Sumar una unidad de Downpipe HKS">+</button>
+                            </div>
+                            <button type="button" class="eliminar" onclick="eliminarProducto('downpipe')" aria-label="Eliminar Downpipe HKS del carrito">Eliminar</button>
+                        </article>
+
+                        
         </main>
 
         <footer id="pie">
