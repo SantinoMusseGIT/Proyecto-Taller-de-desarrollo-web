@@ -1375,6 +1375,69 @@ input {
     text-transform: uppercase;
 }
 
+.campo-formulario {
+    margin-bottom: 16px;
+}
+
+.campo-formulario label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.campo-formulario input,
+.campo-formulario textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #b8c0c8;
+    background-color: #ffffff;
+    font: inherit;
+}
+
+.campo-formulario textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+#enviar-contacto,
+#ingresar-cuenta,
+#crear-cuenta {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ffd600;
+    background-color: #ffd600;
+    color: #111111;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#enviar-contacto:hover,
+#ingresar-cuenta:hover {
+    background-color: #e6bf00;
+}
+
+.registro-invitacion {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #b8c0c8;
+}
+
+.registro-invitacion p {
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+#crear-cuenta {
+    border-color: #b8c0c8;
+    background-color: #ffffff;
+}
+
+#crear-cuenta:hover {
+    background-color: #f5f5f5;
+}
+
 @media (max-width: 700px) {
     .catalogo-contenido {
         grid-template-columns: 1fr;
