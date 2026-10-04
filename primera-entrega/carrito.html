@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Santino Musse">
+    <meta name="description" content="Carrito de compras de Escape Libre: revisá tus productos, calculá el envío y finalizá tu compra.">
+    <meta name="keywords" content="carrito, compra, partes de autos, escapes, frenos, envío">
+    <title>Carrito | Escape Libre</title>
+    <link rel="icon" type="image/png" href="imagenes/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="actualizarCarrito()">
+    <div id="contenedor">
+
+        <header id="cabecera">
+            <div class="barra-superior">
+                <h1>
+                    <a href="index.html">
+                        <img src="imagenes/logo-escape-libre.png" alt="Escape Libre, tu auto sin límites">
+                    </a>
+                </h1>
+                <div class="buscador">
+                    <label class="solo-lectores" for="busqueda">Buscar productos, marcas o autos</label>
+                    <input type="text" id="busqueda" name="busqueda" placeholder="Buscar productos, marcas, autos...">
+                    <button type="button">Buscar</button>
+                </div>
+                <div class="acciones">
+                    <a href="contacto.html">Mi cuenta</a>
+                    <a href="carrito.html">Carrito <span id="contador-carrito">0</span></a>
+                </div>
+            </div>
+            <nav id="menu">
+                <a href="catalogo.html">Todas las categorías</a>
+                <a href="catalogo.html">Marcas</a>
+                <a href="catalogo.html">Por vehículo</a>
+                <a href="catalogo.html">Ofertas</a>
+                <a href="catalogo.html">Novedades</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="contenido-carrito">
+                <nav class="migas" aria-label="Ruta de navegación">
+                    <a href="index.html">Inicio</a> &gt; <span>Carrito</span>
+                </nav>
+
+                <h2 id="titulo-carrito">Mi carrito (3 productos)</h2>
+
+                <div class="carrito-columnas">
+                    <section id="lista-productos">
+                        <article class="producto-carrito" id="item-filtro" data-precio="120000">
+                            <img src="imagenes/categoria-admision.jpg" alt="Filtro de aire deportivo rojo">
+                            <div class="producto-datos">
+                                <h3>Filtro de aire K&amp;N</h3>
+                                <p class="producto-precio">$ 120.000</p>
+                            </div>
+                            <div class="cantidad">
+                                <button type="button" onclick="cambiarCantidad('filtro', -1)" aria-label="Restar una unidad de Filtro de aire K&amp;N">-</button>
+                                <label class="solo-lectores" for="cantidad-filtro">Cantidad de Filtro de aire K&amp;N</label>
+                                <input type="text" id="cantidad-filtro" value="1" inputmode="numeric" onchange="validarCantidad('filtro')">
+                                <button type="button" onclick="cambiarCantidad('filtro', 1)" aria-label="Sumar una unidad de Filtro de aire K&amp;N">+</button>
+                            </div>
+                            <button type="button" class="eliminar" onclick="eliminarProducto('filtro')" aria-label="Eliminar Filtro de aire K&amp;N del carrito">Eliminar</button>
+                        </article>
+
+                        <article class="producto-carrito" id="item-downpipe" data-precio="750000">
+                            <img src="imagenes/categoria-escapes.jpg" alt="Downpipe de acero inoxidable">
+                            <div class="producto-datos">
+                                <h3>Downpipe HKS</h3>
+                                <p class="producto-precio">$ 750.000</p>
+                            </div>
+                            <div class="cantidad">
+                                <button type="button" onclick="cambiarCantidad('downpipe', -1)" aria-label="Restar una unidad de Downpipe HKS">-</button>
+                                <label class="solo-lectores" for="cantidad-downpipe">Cantidad de Downpipe HKS</label>
+                                <input type="text" id="cantidad-downpipe" value="1" inputmode="numeric" onchange="validarCantidad('downpipe')">
+                                <button type="button" onclick="cambiarCantidad('downpipe', 1)" aria-label="Sumar una unidad de Downpipe HKS">+</button>
+                            </div>
+                            <button type="button" class="eliminar" onclick="eliminarProducto('downpipe')" aria-label="Eliminar Downpipe HKS del carrito">Eliminar</button>
+                        </article>
+
+                        <article class="producto-carrito" id="item-discos" data-precio="600000">
+                            <img src="imagenes/categoria-frenos.jpg" alt="Disco de freno con pinza roja">
+                            <div class="producto-datos">
+                                <h3>Discos de freno Brembo</h3>
+                                <p class="producto-precio">$ 600.000</p>
+                            </div>
+                            <div class="cantidad">
+                                <button type="button" onclick="cambiarCantidad('discos', -1)" aria-label="Restar una unidad de Discos de freno Brembo">-</button>
+                                <label class="solo-lectores" for="cantidad-discos">Cantidad de Discos de freno Brembo</label>
+                                <input type="text" id="cantidad-discos" value="1" inputmode="numeric" onchange="validarCantidad('discos')">
+                                <button type="button" onclick="cambiarCantidad('discos', 1)" aria-label="Sumar una unidad de Discos de freno Brembo">+</button>
+                            </div>
+                            <button type="button" class="eliminar" onclick="eliminarProducto('discos')" aria-label="Eliminar Discos de freno Brembo del carrito">Eliminar</button>
+                        </article>
+
+                        <p id="carrito-vacio" class="oculto">Tu carrito está vacío. <a href="catalogo.html">Ver el catálogo</a></p>
+                    </section>
+
+                    <aside id="resumen">
+                        <h3>Resumen de compra</h3>
+                        <div class="fila-resumen">
+                            <span>Subtotal</span>
+                            <span id="subtotal">$ 0</span>
+                        </div>
+                        <div class="fila-resumen">
+                            <span>Envío</span>
+                            <span id="envio">A calcular</span>
+                        </div>
+                        <div class="calculo-envio">
+                            <label for="codigo-postal">Código postal</label>
+                            <div>
+                                <input type="text" id="codigo-postal" maxlength="4" inputmode="numeric" placeholder="Ej: 5000">
+                                <button type="button" class="boton-secundario" onclick="calcularEnvio()">Calcular envío</button>
+                            </div>
+                        </div>
+                        <div class="fila-resumen fila-total">
+                            <span>Total</span>
+                            <span id="total">$ 0</span>
+                        </div>
+                        <button type="button" class="boton" onclick="finalizarCompra()">Finalizar compra</button>
+                        <a class="seguir" href="catalogo.html">&larr; Seguir comprando</a>
+                    </aside>
+                </div>
+            </div>
+        </main>
+
+        <footer id="pie">
+            <p>Escape Libre &copy; 2026. Proyecto de Taller de Desarrollo Web.</p>
+            <p>Autores: Santino Musse</p>
+        </footer>
+
+    </div>
+    <script src="carrito.js"></script>
+</body>
+</html>
