@@ -1,154 +1,121 @@
+const PRECIO_FILTRO = 120000;
+const PRECIO_DOWNPIPE = 750000;
+const PRECIO_DISCOS = 600000;
 const CANTIDAD_MAXIMA = 99;
-const PRECIO_ENVIO_CORDOBA = 8000;
-const PRECIO_ENVIO_PAIS = 15000;
 
 let envioActual = null;
-
-/**
- * Convierte un número en un precio con formato argentino.
- * @method formatearPrecio
- * @param {number} valor - Monto en pesos que se quiere mostrar.
- * @return {string} Precio con símbolo $ y puntos como separador de miles.
- */
-function formatearPrecio(valor) {
-    return '$ ' + String(valor).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-}
+let productosEnCarrito = 3;
 
 /**
  * Lee la cantidad escrita en el campo de un producto.
  * @method obtenerCantidad
- * @param {string} id - Identificador del producto, por ejemplo "filtro".
- * @return {number} Cantidad ingresada, o 0 si el campo está vacío.
+ * @param {string} id - Nombre del producto: filtro, downpipe o discos.
+ * @return {number} Cantidad ingresada (0 si el campo está vacío).
  */
 function obtenerCantidad(id) {
-    const valor = document.getElementById('cantidad-' + id).value;
-    return valor === '' ? 0 : parseInt(valor, 10);
+    return Number(document.getElementById('cantidad-' + id).value);
 }
 
 /**
- * Comprueba que la cantidad ingresada sea un entero entre 1 y el máximo.
- * Si no lo es, avisa con un alert y vacía el campo.
- * @method validarCantidad
- * @param {string} id - Identificador del producto, por ejemplo "filtro".
- * @return {boolean} true si la cantidad es válida, false si no lo es.
- */
-function validarCantidad(id) {
-    const campo = document.getElementById('cantidad-' + id);
-    const valor = campo.value.trim();
-    const cantidad = parseInt(valor, 10);
-
-    if (!/^\d+$/.test(valor) || cantidad < 1 || cantidad > CANTIDAD_MAXIMA) {
-        alert('Ingresá una cantidad válida: un número entero entre 1 y ' + CANTIDAD_MAXIMA + '.');
-        campo.value = '';
-        actualizarCarrito();
-        return false;
-    }
-
-    campo.value = cantidad;
-    actualizarCarrito();
-    return true;
-}
-
-/**
- * Suma o resta unidades a un producto con los botones + y -.
- * @method cambiarCantidad
- * @param {string} id - Identificador del producto, por ejemplo "filtro".
- * @param {number} cambio - Unidades a sumar (1) o restar (-1).
- * @return {void} No devuelve ningún valor.
- */
-function cambiarCantidad(id, cambio) {
-    const nuevaCantidad = obtenerCantidad(id) + cambio;
-
-    if (nuevaCantidad < 1) {
-        return;
-    }
-    if (nuevaCantidad > CANTIDAD_MAXIMA) {
-        alert('La cantidad máxima por producto es ' + CANTIDAD_MAXIMA + '.');
-        return;
-    }
-
-    document.getElementById('cantidad-' + id).value = nuevaCantidad;
-    actualizarCarrito();
-}
-
-/**
- * Calcula el subtotal multiplicando el precio de cada producto por su cantidad.
+ * Calcula el subtotal sumando precio por cantidad de cada producto.
  * @method calcularSubtotal
  * @return {number} Subtotal del carrito en pesos.
  */
 function calcularSubtotal() {
-    const productos = document.querySelectorAll('.producto-carrito');
-    let subtotal = 0;
-
-    productos.forEach(function (producto) {
-        const id = producto.id.replace('item-', '');
-        subtotal += Number(producto.dataset.precio) * obtenerCantidad(id);
-    });
-
-    return subtotal;
+    const totalFiltro = obtenerCantidad('filtro') * PRECIO_FILTRO;
+    const totalDownpipe = obtenerCantidad('downpipe') * PRECIO_DOWNPIPE;
+    const totalDiscos = obtenerCantidad('discos') * PRECIO_DISCOS;
+    return totalFiltro + totalDownpipe + totalDiscos;
 }
 
 /**
- * Cuenta el total de unidades que hay en el carrito.
+ * Cuenta cuántas unidades hay en total en el carrito.
  * @method contarUnidades
  * @return {number} Cantidad total de unidades.
  */
 function contarUnidades() {
-    const productos = document.querySelectorAll('.producto-carrito');
-    let unidades = 0;
-
-    productos.forEach(function (producto) {
-        unidades += obtenerCantidad(producto.id.replace('item-', ''));
-    });
-
-    return unidades;
+    return obtenerCantidad('filtro') + obtenerCantidad('downpipe') + obtenerCantidad('discos');
 }
 
 /**
- * Indica si algún producto tiene el campo de cantidad vacío.
- * @method hayCantidadesVacias
- * @return {boolean} true si hay al menos un campo vacío.
- */
-function hayCantidadesVacias() {
-    const productos = document.querySelectorAll('.producto-carrito');
-
-    return Array.from(productos).some(function (producto) {
-        return obtenerCantidad(producto.id.replace('item-', '')) === 0;
-    });
-}
-
-/**
- * Actualiza en pantalla el título, el contador, el subtotal, el envío y el total.
+ * Muestra en pantalla el título, el contador, el subtotal, el envío y el total.
  * @method actualizarCarrito
- * @return {void} No devuelve ningún valor.
+ * @return {void}
  */
 function actualizarCarrito() {
     const unidades = contarUnidades();
     const subtotal = calcularSubtotal();
-    const costoEnvio = envioActual === null ? 0 : envioActual;
-    const hayProductos = document.querySelectorAll('.producto-carrito').length > 0;
-    const textoUnidades = unidades === 1 ? ' producto)' : ' productos)';
+    let costoEnvio = 0;
 
-    document.getElementById('titulo-carrito').textContent = 'Mi carrito (' + unidades + textoUnidades;
+    if (envioActual !== null) {
+        costoEnvio = envioActual;
+        document.getElementById('envio').textContent = '$ ' + envioActual.toLocaleString('es-AR');
+    } else {
+        document.getElementById('envio').textContent = 'A calcular';
+    }
+
+    if (unidades === 1) {
+        document.getElementById('titulo-carrito').textContent = 'Mi carrito (1 producto)';
+    } else {
+        document.getElementById('titulo-carrito').textContent = 'Mi carrito (' + unidades + ' productos)';
+    }
+
     document.getElementById('contador-carrito').textContent = unidades;
-    document.getElementById('subtotal').textContent = formatearPrecio(subtotal);
-    document.getElementById('envio').textContent = envioActual === null ? 'A calcular' : formatearPrecio(envioActual);
-    document.getElementById('total').textContent = formatearPrecio(subtotal + costoEnvio);
-    document.getElementById('carrito-vacio').classList.toggle('oculto', hayProductos);
-    document.getElementById('resumen').classList.toggle('oculto', !hayProductos);
+    document.getElementById('subtotal').textContent = '$ ' + subtotal.toLocaleString('es-AR');
+    document.getElementById('total').textContent = '$ ' + (subtotal + costoEnvio).toLocaleString('es-AR');
+
+    if (productosEnCarrito === 0) {
+        document.getElementById('carrito-vacio').classList.remove('oculto');
+        document.getElementById('resumen').classList.add('oculto');
+    }
 }
 
 /**
- * Quita un producto del carrito después de pedir confirmación.
+ * Comprueba que la cantidad sea un número entero entre 1 y 99.
+ * Si no lo es, avisa con un alert y vacía el campo.
+ * @method validarCantidad
+ * @param {string} id - Nombre del producto: filtro, downpipe o discos.
+ * @return {void}
+ */
+function validarCantidad(id) {
+    const campo = document.getElementById('cantidad-' + id);
+    const cantidad = Number(campo.value);
+
+    if (isNaN(cantidad) || cantidad < 1 || cantidad > CANTIDAD_MAXIMA || cantidad % 1 !== 0) {
+        alert('Ingresá una cantidad válida: un número entero entre 1 y ' + CANTIDAD_MAXIMA + '.');
+        campo.value = '';
+    }
+
+    actualizarCarrito();
+}
+
+/**
+ * Suma o resta una unidad a un producto con los botones + y -.
+ * @method cambiarCantidad
+ * @param {string} id - Nombre del producto: filtro, downpipe o discos.
+ * @param {number} cambio - 1 para sumar, -1 para restar.
+ * @return {void}
+ */
+function cambiarCantidad(id, cambio) {
+    const nuevaCantidad = obtenerCantidad(id) + cambio;
+
+    if (nuevaCantidad >= 1 && nuevaCantidad <= CANTIDAD_MAXIMA) {
+        document.getElementById('cantidad-' + id).value = nuevaCantidad;
+        actualizarCarrito();
+    }
+}
+
+/**
+ * Quita un producto del carrito si el usuario confirma.
  * @method eliminarProducto
- * @param {string} id - Identificador del producto, por ejemplo "filtro".
- * @return {void} No devuelve ningún valor.
+ * @param {string} id - Nombre del producto: filtro, downpipe o discos.
+ * @return {void}
  */
 function eliminarProducto(id) {
-    const producto = document.getElementById('item-' + id);
-
-    if (producto && confirm('¿Querés quitar este producto del carrito?')) {
-        producto.remove();
+    if (confirm('¿Querés quitar este producto del carrito?')) {
+        document.getElementById('cantidad-' + id).value = 0;
+        document.getElementById('item-' + id).classList.add('oculto');
+        productosEnCarrito = productosEnCarrito - 1;
         actualizarCarrito();
     }
 }
@@ -157,44 +124,37 @@ function eliminarProducto(id) {
  * Valida el código postal y calcula el costo de envío.
  * Si no son 4 números, avisa con un alert y vacía el campo.
  * @method calcularEnvio
- * @return {boolean} true si el código postal es válido, false si no lo es.
+ * @return {void}
  */
 function calcularEnvio() {
     const campo = document.getElementById('codigo-postal');
     const codigo = campo.value.trim();
 
-    if (!/^\d{4}$/.test(codigo)) {
+    if (codigo.length !== 4 || isNaN(codigo)) {
         alert('Ingresá un código postal válido de 4 números.');
         campo.value = '';
         envioActual = null;
-        actualizarCarrito();
-        return false;
+    } else if (codigo[0] === '5') {
+        envioActual = 8000;
+    } else {
+        envioActual = 15000;
     }
 
-    envioActual = codigo.charAt(0) === '5' ? PRECIO_ENVIO_CORDOBA : PRECIO_ENVIO_PAIS;
     actualizarCarrito();
-    return true;
 }
 
 /**
- * Verifica que el carrito esté listo y confirma la compra.
+ * Revisa que el carrito tenga productos y el envío calculado, y confirma la compra.
  * @method finalizarCompra
- * @return {void} No devuelve ningún valor.
+ * @return {void}
  */
 function finalizarCompra() {
-    if (hayCantidadesVacias()) {
-        alert('Revisá las cantidades: hay productos sin cantidad.');
-        return;
-    }
-    if (calcularSubtotal() === 0) {
+    if (contarUnidades() === 0) {
         alert('Tu carrito está vacío.');
-        return;
-    }
-    if (envioActual === null) {
+    } else if (envioActual === null) {
         alert('Calculá el envío con tu código postal antes de finalizar la compra.');
-        document.getElementById('codigo-postal').focus();
-        return;
+    } else {
+        const total = calcularSubtotal() + envioActual;
+        alert('¡Gracias por tu compra! Total a pagar: $ ' + total.toLocaleString('es-AR'));
     }
-
-    alert('¡Gracias por tu compra! Total a pagar: ' + formatearPrecio(calcularSubtotal() + envioActual));
 }
