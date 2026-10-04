@@ -143,18 +143,3 @@ function calcularEnvio() {
     actualizarCarrito();
 }
 
-/**
- * Revisa que el carrito tenga productos y el envío calculado, y confirma la compra.
- * @method finalizarCompra
- * @return {void}
- */
-function finalizarCompra() {
-    if (contarUnidades() === 0) {
-        alert('Tu carrito está vacío.');
-    } else if (envioActual === null) {
-        alert('Calculá el envío con tu código postal antes de finalizar la compra.');
-    } else {
-        const total = calcularSubtotal() + envioActual;
-        alert('¡Gracias por tu compra! Total a pagar: $ ' + total.toLocaleString('es-AR'));
-    }
-}
