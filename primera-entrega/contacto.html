@@ -77,6 +77,44 @@
           <section class="contacto-seccion">
             <h3>Contacto</h3>
             <h4>¿Hablamos?</h4>
+            <form id="formulario-contacto">
+              <div class="campo-formulario">
+                <label for="contacto-nombre">Nombre</label>
+                <input
+                  type="text"
+                  id="contacto-nombre"
+                  name="nombre"
+                  placeholder="Ingresá tu nombre"
+                  size="30"
+                  maxlength="50"
+                />
+              </div>
+
+              <div class="campo-formulario">
+                <label for="contacto-email">Correo electrónico</label>
+                <input
+                  type="email"
+                  id="contacto-email"
+                  name="email"
+                  placeholder="Ingresá tu correo electrónico"
+                  size="30"
+                  maxlength="80"
+                />
+              </div>
+
+              <div class="campo-formulario">
+                <label for="contacto-mensaje">Mensaje</label>
+                <textarea
+                  id="contacto-mensaje"
+                  name="mensaje"
+                  placeholder="Escribí tu consulta"
+                  rows="5"
+                  maxlength="300"
+                ></textarea>
+              </div>
+
+              <button type="button" id="enviar-contacto">Enviar mensaje</button>
+            </form>
           </section>
 
           <section class="cuenta-seccion">
