@@ -69,7 +69,7 @@
                         </article>
 
                         <article class="producto-carrito" id="item-downpipe" data-precio="750000">
-                            <img src="imagenes/categoria-escapes.jpg" alt="Downpipe de acero inoxidable">
+                            <img src="imagenes/Categoria Escape.png" alt="Downpipe de acero inoxidable">
                             <div class="producto-datos">
                                 <h3>Downpipe HKS</h3>
                                 <p class="producto-precio">$ 750.000</p>
@@ -83,12 +83,29 @@
                             <button type="button" class="eliminar" onclick="eliminarProducto('downpipe')" aria-label="Eliminar Downpipe HKS del carrito">Eliminar</button>
                         </article>
 
-                        
+                        <article class="producto-carrito" id="item-discos" data-precio="600000">
+                            <img src="imagenes/Categoria Frenos.png" alt="Disco de freno con pinza roja">
+                            <div class="producto-datos">
+                                <h3>Discos de freno Brembo</h3>
+                                <p class="producto-precio">$ 600.000</p>
+                            </div>
+                            <div class="cantidad">
+                                <button type="button" onclick="cambiarCantidad('discos', -1)" aria-label="Restar una unidad de Discos de freno Brembo">-</button>
+                                <label class="solo-lectores" for="cantidad-discos">Cantidad de Discos de freno Brembo</label>
+                                <input type="text" id="cantidad-discos" value="1" inputmode="numeric" onchange="validarCantidad('discos')">
+                                <button type="button" onclick="cambiarCantidad('discos', 1)" aria-label="Sumar una unidad de Discos de freno Brembo">+</button>
+                            </div>
+                            <button type="button" class="eliminar" onclick="eliminarProducto('discos')" aria-label="Eliminar Discos de freno Brembo del carrito">Eliminar</button>
+                        </article>
+
+                        <p id="carrito-vacio" class="oculto">Tu carrito está vacío. <a href="catalogo.html">Ver el catálogo</a></p>
+                    </section>
+
         </main>
 
         <footer id="pie">
             <p>Escape Libre &copy; 2026. Proyecto de Taller de Desarrollo Web.</p>
-            <p>Autores: Santino Musse</p>
+            <p>Autores: Santino Mussetti - Aghassi Mingorance</p>
         </footer>
 
     </div>
