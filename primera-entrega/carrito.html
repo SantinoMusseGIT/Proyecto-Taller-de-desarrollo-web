@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Santino Musse">
+    <meta name="author" content="Santino Mussetti, Aghassi Mingorance">
     <meta name="description" content="Carrito de compras de Escape Libre: revisá tus productos, calculá el envío y finalizá tu compra.">
     <meta name="keywords" content="carrito, compra, partes de autos, escapes, frenos, envío">
     <title>Carrito | Escape Libre</title>
@@ -25,7 +25,7 @@
                 </h1>
                 <div class="buscador">
                     <label class="solo-lectores" for="busqueda">Buscar productos, marcas o autos</label>
-                    <input type="text" id="busqueda" name="busqueda" placeholder="Buscar productos, marcas, autos...">
+                    <input type="text" id="busqueda" name="busqueda" size="30" maxlength="60" placeholder="Buscar productos, marcas, autos...">
                     <button type="button">Buscar</button>
                 </div>
                 <div class="acciones">
@@ -62,7 +62,7 @@
                             <div class="cantidad">
                                 <button type="button" onclick="cambiarCantidad('filtro', -1)" aria-label="Restar una unidad de Filtro de aire K&amp;N">-</button>
                                 <label class="solo-lectores" for="cantidad-filtro">Cantidad de Filtro de aire K&amp;N</label>
-                                <input type="text" id="cantidad-filtro" value="1" inputmode="numeric" onchange="validarCantidad('filtro')">
+                                <input type="text" id="cantidad-filtro" value="1" size="2" maxlength="2" inputmode="numeric" onchange="validarCantidad('filtro')">
                                 <button type="button" onclick="cambiarCantidad('filtro', 1)" aria-label="Sumar una unidad de Filtro de aire K&amp;N">+</button>
                             </div>
                             <button type="button" class="eliminar" onclick="eliminarProducto('filtro')" aria-label="Eliminar Filtro de aire K&amp;N del carrito">Eliminar</button>
@@ -77,7 +77,7 @@
                             <div class="cantidad">
                                 <button type="button" onclick="cambiarCantidad('downpipe', -1)" aria-label="Restar una unidad de Downpipe HKS">-</button>
                                 <label class="solo-lectores" for="cantidad-downpipe">Cantidad de Downpipe HKS</label>
-                                <input type="text" id="cantidad-downpipe" value="1" inputmode="numeric" onchange="validarCantidad('downpipe')">
+                                <input type="text" id="cantidad-downpipe" value="1" size="2" maxlength="2" inputmode="numeric" onchange="validarCantidad('downpipe')">
                                 <button type="button" onclick="cambiarCantidad('downpipe', 1)" aria-label="Sumar una unidad de Downpipe HKS">+</button>
                             </div>
                             <button type="button" class="eliminar" onclick="eliminarProducto('downpipe')" aria-label="Eliminar Downpipe HKS del carrito">Eliminar</button>
@@ -92,7 +92,7 @@
                             <div class="cantidad">
                                 <button type="button" onclick="cambiarCantidad('discos', -1)" aria-label="Restar una unidad de Discos de freno Brembo">-</button>
                                 <label class="solo-lectores" for="cantidad-discos">Cantidad de Discos de freno Brembo</label>
-                                <input type="text" id="cantidad-discos" value="1" inputmode="numeric" onchange="validarCantidad('discos')">
+                                <input type="text" id="cantidad-discos" value="1" size="2" maxlength="2" inputmode="numeric" onchange="validarCantidad('discos')">
                                 <button type="button" onclick="cambiarCantidad('discos', 1)" aria-label="Sumar una unidad de Discos de freno Brembo">+</button>
                             </div>
                             <button type="button" class="eliminar" onclick="eliminarProducto('discos')" aria-label="Eliminar Discos de freno Brembo del carrito">Eliminar</button>
@@ -114,7 +114,7 @@
                         <div class="calculo-envio">
                             <label for="codigo-postal">Código postal</label>
                             <div>
-                                <input type="text" id="codigo-postal" maxlength="4" inputmode="numeric" placeholder="Ej: 5000">
+                                <input type="text" id="codigo-postal" maxlength="4" size="6" inputmode="numeric" placeholder="Ej: 5000">
                                 <button type="button" class="boton-secundario" onclick="calcularEnvio()">Calcular envío</button>
                             </div>
                         </div>
