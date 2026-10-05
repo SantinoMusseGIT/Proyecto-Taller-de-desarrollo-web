@@ -1,122 +1,174 @@
 <!doctype html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Santino Mussetti - Aghassi Mingorance">
-        <meta
-            name="description"
-            content="Catálogo de productos de Escape Libre para la modificación y mejora de vehículos.">
-        <meta
-            name="keywords"
-            content="autopartes, tuning, modificaciones, escapes, admisión, suspensión, frenos">
-        <title>Catálogo | Escape Libre</title>
-        <link
-    rel="icon"
-    type="image/png"
-    href="imagenes/Logo Escape Libre.png"
->
-        <link rel="stylesheet" href="styles.css">
-        <script src="catalogo.js" defer></script>
-    </head>
-    <body>
-        <header>
-            <h1>Escape Libre</h1>
-            <p class="carrito-resumen">
-                Productos en el carrito:
-                <span id="cantidad-carrito" aria-live="polite">0</span>
-            </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Santino Mussetti - Aghassi Mingorance" />
+    <meta
+      name="description"
+      content="Catálogo de productos de Escape Libre para la modificación y mejora de vehículos."
+    />
+    <meta
+      name="keywords"
+      content="autopartes, tuning, modificaciones, escapes, admisión, suspensión, frenos"
+    />
+    <title>Catálogo | Escape Libre</title>
 
-            <p class="carrito-total">
-                Total:
-                $<span id="total-carrito" aria-live="polite">0</span>
-            </p>
-        </header>
-        <nav>
-            <ul>
-                <li>
-                    <a href="index.html">Inicio</a>
-                </li>
-                <li>
-                    <a href="catalogo.html">Catálogo</a>
-                </li>
-                <li>
-                    <a href="carrito.html">Carrito</a>
-                </li>
-                <li>
-                    <a href="contacto.html">Contacto</a>
-                </li>
-            </ul>
-        </nav>
-        <main class="catalogo-principal">
-            <h2 class="catalogo-titulo">
-                Catálogo de productos
-                <span id="cantidad-resultados" aria-live="polite">
-                    2 resultados
-                </span>
-            </h2>
-            <div class="catalogo-contenido">
-                <section id="filtros">
-                    <h3>Filtros</h3>
-                    <label for="categoria">Categoría</label>
-                    <select id="categoria" name="categoria">
-                        <option value="">Todas las categorías</option>
-                        <option value="escapes">Escapes</option>
-                        <option value="admision">Admisión</option>
-                        <option value="suspension">Suspensión</option>
-                        <option value="frenos">Frenos</option>
-                    </select>
-                    <label for="busqueda-producto">Buscar producto</label>
-                    <input
-                        type="text"
-                        id="busqueda-producto"
-                        name="busquedaProducto"
-                        placeholder="Ejemplo: escape deportivo"
-                        size="30"
-                        maxlength="50"
-                    >
-                    <button type="button" id="aplicar-filtros" onclick="aplicarFiltros()">
-                        Aplicar filtros
-                    </button>
-                </section>
-                <section id="productos">
-                    <h3>Productos disponibles</h3>
-                    <p id="sin-resultados" hidden>
-                        No se encontraron productos que coincidan con la búsqueda.
-                    </p>
-                    <div class="productos-lista">
-                        <article class="producto" data-categoria="escapes" data-precio="850000">
-                            <img
-                                class="producto-imagen"
-                                src="imagenes/Categoria Escape.png"
-                                alt="Sistema de escape deportivo"
-                            >
-                            <h4>Escape deportivo</h4>
-                            <p class="producto-descripcion">Escape de alto rendimiento para mejorar el sonido del vehículo.</p>
-                            <p class="producto-precio">$850.000</p>
-                            <button class="producto-boton" type="button" onclick="agregarAlCarrito(this)">
-                                Agregar al carrito
-                            </button>
-                        </article>
-                        <article class="producto" data-categoria="suspension" data-precio="1200000">
-                            <img
-                                class="producto-imagen"
-                                src="imagenes/Categoria Suspension.png"
-                                alt="Kit de suspensión deportiva"
-                            >
-                            <h4>Suspensión deportiva</h4>
-                            <p class="producto-descripcion">Kit de suspensión para mejorar la estabilidad y reducir la altura del vehículo.</p>
-                            <p class="producto-precio">$1.200.000</p>
-                            <button class="producto-boton" type="button" onclick="agregarAlCarrito(this)">
-                                Agregar al carrito
-                            </button>
-                        </article>
-                    </div>
-                </section>
-            </div>
-        </main>
-        <footer>
-            <p>Escape Libre &copy; 2026</p>
-        </footer>
-    </body>
+    <link rel="icon" type="image/png" href="imagenes/Logo Escape Libre.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Barlow:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <script src="Funciones.js" defer></script>
+    <script src="catalogo.js" defer></script>
+  </head>
+  <body>
+    <header id="cabecera">
+      <div class="barra-superior">
+        <h1 class="logo">
+          <a href="index.html">
+            <img src="imagenes/Logo Escape Libre.png" alt="Escape Libre" />
+          </a>
+        </h1>
+
+        <div class="buscador">
+          <label class="solo-lectores" for="busqueda">
+            Buscar productos, marcas o autos
+          </label>
+
+          <input
+            type="text"
+            id="busqueda"
+            name="busqueda"
+            size="30"
+            maxlength="60"
+            placeholder="Buscar productos, marcas, autos..."
+          />
+
+          <button type="button" onclick="realizarBusqueda()">Buscar</button>
+        </div>
+
+        <div class="acciones">
+          <a href="contacto.html"> Mi cuenta </a>
+
+          <a href="carrito.html">
+            Carrito
+            <span id="cantidad-carrito" aria-live="polite"> 0 </span>
+          </a>
+
+          <p class="carrito-total">
+            Total: $<span id="total-carrito" aria-live="polite">0</span>
+          </p>
+        </div>
+      </div>
+
+      <nav id="menu">
+        <a href="catalogo.html"> Todas las categorías </a>
+
+        <a href="catalogo.html"> Marcas </a>
+
+        <a href="catalogo.html"> Por vehículo </a>
+
+        <a href="catalogo.html"> Ofertas </a>
+
+        <a href="catalogo.html"> Novedades </a>
+
+        <a href="contacto.html"> Contacto </a>
+      </nav>
+    </header>
+    <main class="catalogo-principal">
+      <h2 class="catalogo-titulo">
+        Catálogo de productos
+        <span id="cantidad-resultados" aria-live="polite"> 2 resultados </span>
+      </h2>
+      <div class="catalogo-contenido">
+        <section id="filtros">
+          <h3>Filtros</h3>
+          <label for="categoria">Categoría</label>
+          <select id="categoria" name="categoria">
+            <option value="">Todas las categorías</option>
+            <option value="escapes">Escapes</option>
+            <option value="admision">Admisión</option>
+            <option value="suspension">Suspensión</option>
+            <option value="frenos">Frenos</option>
+          </select>
+          <label for="busqueda-producto">Buscar producto</label>
+          <input
+            type="text"
+            id="busqueda-producto"
+            name="busquedaProducto"
+            placeholder="Ejemplo: escape deportivo"
+            size="30"
+            maxlength="50"
+          />
+          <button type="button" id="aplicar-filtros" onclick="aplicarFiltros()">
+            Aplicar filtros
+          </button>
+        </section>
+        <section id="productos">
+          <h3>Productos disponibles</h3>
+          <p id="sin-resultados" hidden>
+            No se encontraron productos que coincidan con la búsqueda.
+          </p>
+          <div class="productos-lista">
+            <article
+              class="producto"
+              data-categoria="escapes"
+              data-precio="850000"
+            >
+              <img
+                class="producto-imagen"
+                src="imagenes/Categoria Escape.png"
+                alt="Sistema de escape deportivo"
+              />
+              <h4>Escape deportivo</h4>
+              <p class="producto-descripcion">
+                Escape de alto rendimiento para mejorar el sonido del vehículo.
+              </p>
+              <p class="producto-precio">$850.000</p>
+              <button
+                class="producto-boton"
+                type="button"
+                onclick="agregarAlCarrito(this)"
+              >
+                Agregar al carrito
+              </button>
+            </article>
+            <article
+              class="producto"
+              data-categoria="suspension"
+              data-precio="1200000"
+            >
+              <img
+                class="producto-imagen"
+                src="imagenes/Categoria Suspension.png"
+                alt="Kit de suspensión deportiva"
+              />
+              <h4>Suspensión deportiva</h4>
+              <p class="producto-descripcion">
+                Kit de suspensión para mejorar la estabilidad y reducir la
+                altura del vehículo.
+              </p>
+              <p class="producto-precio">$1.200.000</p>
+              <button
+                class="producto-boton"
+                type="button"
+                onclick="agregarAlCarrito(this)"
+              >
+                Agregar al carrito
+              </button>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <p>Escape Libre &copy; 2026</p>
+    </footer>
+  </body>
 </html>
