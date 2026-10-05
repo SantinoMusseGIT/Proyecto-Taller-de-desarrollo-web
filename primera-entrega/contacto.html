@@ -14,7 +14,12 @@
     />
 
     <title>Contacto y Mi cuenta | Escape Libre</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script src="Funciones.js" defer></script>
     <script src="contacto.js" defer></script>
@@ -115,7 +120,13 @@
                 ></textarea>
               </div>
 
-              <button type="button" id="enviar-contacto">Enviar mensaje</button>
+              <button
+                type="button"
+                id="enviar-contacto"
+                onclick="enviarMensaje()"
+              >
+                Enviar mensaje
+              </button>
             </form>
           </section>
 
@@ -149,7 +160,13 @@
                 />
               </div>
 
-              <button type="button" id="ingresar-cuenta">Ingresar</button>
+              <button
+                type="button"
+                id="ingresar-cuenta"
+                onclick="iniciarSesion()"
+              >
+                Ingresar
+              </button>
             </form>
 
             <div class="registro-invitacion">
@@ -158,11 +175,40 @@
                 Creá tu cuenta y disfrutá de una mejor experiencia de compra.
               </p>
 
-              <button type="button" id="crear-cuenta">Crear cuenta</button>
+              <button
+                type="button"
+                id="crear-cuenta"
+                onclick="informarRegistro()"
+              >
+                Crear cuenta
+              </button>
             </div>
           </section>
         </div>
       </main>
+      <footer id="pie">
+        <div class="footer-contenido">
+          <div>
+            <h3>Escape Libre</h3>
+
+            <p>Tu auto. Sin límites.</p>
+          </div>
+
+          <div class="footer-links">
+            <a href="catalogo.html"> Productos </a>
+
+            <a href="contacto.html"> Contacto </a>
+
+            <a href="carrito.html"> Carrito </a>
+          </div>
+        </div>
+
+        <div class="footer-inferior">
+          <p>Escape Libre &copy; 2026. Proyecto de Taller de Desarrollo Web.</p>
+
+          <p>Autores: Santino Mussetti - Aghassi Mingorance</p>
+        </div>
+      </footer>
     </div>
     <footer id="pie">
             <p>Escape Libre &copy; 2026. Proyecto de Taller de Desarrollo Web.</p>
