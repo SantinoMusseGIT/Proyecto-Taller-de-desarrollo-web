@@ -2,6 +2,14 @@
 
 **Proyecto de Taller de Desarrollo Web 2026**
 
+## Índice
+
+- [Autores](#autores)
+- [Enlace de la página](#link-de-la-página)
+- [Contenido de la página](#contenido-de-la-página)
+- [Secciones](#secciones)
+- [Tecnologías usadas](#tecnologías-usadas)
+
 ## Autores
 
 - Santino Mussetti
