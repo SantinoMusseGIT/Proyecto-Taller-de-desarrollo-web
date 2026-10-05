@@ -1182,7 +1182,6 @@ input {
 
 }
 
-<<<<<<< HEAD
 .contenido-carrito {
     padding: 16px 24px 32px;
 }
@@ -1205,8 +1204,12 @@ input {
 .carrito-columnas {
     display: grid;
     grid-template-columns: 2fr 1fr;
-=======
-/*CATALOGO*/
+    gap: 24px;
+    align-items: start;
+}
+
+/* CATALOGO */
+
 .producto {
     width: 100%;
     max-width: 320px;
@@ -1249,12 +1252,10 @@ input {
 .catalogo-contenido {
     display: grid;
     grid-template-columns: 220px 1fr;
->>>>>>> origin/aghassi
     gap: 24px;
     align-items: start;
 }
 
-<<<<<<< HEAD
 #lista-productos {
     display: flex;
     flex-direction: column;
@@ -1440,7 +1441,7 @@ button.boton {
         width: 70px;
     }
 }
-=======
+
 .catalogo-principal {
     width: 100%;
     max-width: 1300px;
@@ -1675,4 +1676,3 @@ button.boton {
         border-bottom: 1px solid #b8c0c8;
     }
 }
->>>>>>> origin/aghassi
