@@ -17,7 +17,7 @@
 
 ## Link de la página
 
-[Ver la web en GitHub Pages](https://santinomussegit.github.io/Proyecto-Taller-de-desarrollo-web/)
+[Ver la web en GitHub Pages](https://santinomussegit.github.io/Proyecto2026-Mussetti-Mingorance/primera-entrega/)
 
 ## Contenido de la página
 
