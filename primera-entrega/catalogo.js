@@ -105,6 +105,17 @@ const aplicarFiltros = () => {
     mensajeSinResultados.hidden = cantidadVisible !== 0;
 };
 
+const parametrosBusqueda =
+    new URLSearchParams(window.location.search);
+
+const busquedaDesdeUrl =
+    parametrosBusqueda.get("busqueda");
+
+if (busquedaDesdeUrl !== null) {
+    campoBusqueda.value = busquedaDesdeUrl;
+    aplicarFiltros();
+}
+
 /**
  * Agrega un producto al carrito guardado y actualiza el resumen.
  * Si el producto ya existe, aumenta su cantidad.

@@ -40,35 +40,21 @@ const validarBusqueda = () => {
 
 
 /**
- * Calcula la cantidad de caracteres de la búsqueda
- * ingresada por el usuario y muestra el resultado.
- *
- * La función primero valida el contenido del campo.
- * Si el contenido es correcto, obtiene la cantidad de
- * caracteres ingresados y muestra un mensaje al usuario.
- *
+ * Valida la búsqueda y envía el texto al catálogo.
  * @method realizarBusqueda
  * @return {void} No retorna ningún valor.
  */
 const realizarBusqueda = () => {
-
     const campoBusqueda = document.getElementById("busqueda");
     const valorBusqueda = campoBusqueda.value.trim();
 
-    // Primero comprobamos que la búsqueda sea válida
     if (!validarBusqueda()) {
         return;
     }
 
-    // Calculamos la cantidad de caracteres
-    const cantidadCaracteres = valorBusqueda.length;
+    const busquedaCodificada =
+        encodeURIComponent(valorBusqueda);
 
-    // Mostramos el resultado al usuario
-    alert(
-        "Búsqueda realizada: " +
-        valorBusqueda +
-        "\nLa búsqueda contiene " +
-        cantidadCaracteres +
-        " caracteres."
-    );
+    window.location.href =
+        `catalogo.html?busqueda=${busquedaCodificada}`;
 };
