@@ -5,8 +5,57 @@ const contadorResultados = document.getElementById("cantidad-resultados");
 const mensajeSinResultados = document.getElementById("sin-resultados");
 const contadorCarrito = document.getElementById("cantidad-carrito");
 const contadorTotalCarrito = document.getElementById("total-carrito");
-let cantidadCarrito = 0;
-let totalCarrito = 0;
+const CLAVE_CARRITO = "escapeLibreCarrito";
+
+/**
+ * Obtiene los productos guardados en el carrito.
+ * @method obtenerCarrito
+ * @return {Array} Lista de productos almacenados.
+ */
+const obtenerCarrito = () => {
+    const carritoGuardado = localStorage.getItem(CLAVE_CARRITO);
+
+    if (carritoGuardado === null) {
+        return [];
+    }
+
+    return JSON.parse(carritoGuardado);
+};
+
+/**
+ * Guarda la lista de productos del carrito.
+ * @method guardarCarrito
+ * @param {Array} carrito - Productos que deben almacenarse.
+ * @return {void}
+ */
+const guardarCarrito = (carrito) => {
+    localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
+};
+
+/**
+ * Actualiza la cantidad y el total mostrados en el encabezado.
+ * @method actualizarResumenCarrito
+ * @return {void}
+ */
+const actualizarResumenCarrito = () => {
+    const carrito = obtenerCarrito();
+
+    const cantidad = carrito.reduce(
+        (acumulador, producto) => acumulador + producto.cantidad,
+        0
+    );
+
+    const total = carrito.reduce(
+        (acumulador, producto) =>
+            acumulador + producto.precio * producto.cantidad,
+        0
+    );
+
+    contadorCarrito.textContent = cantidad;
+    contadorTotalCarrito.textContent = total.toLocaleString("es-AR");
+};
+
+actualizarResumenCarrito();
 /**
  * Filtra los productos según la categoría y el texto ingresado.
  * @method aplicarFiltros
@@ -57,26 +106,45 @@ const aplicarFiltros = () => {
 };
 
 /**
- * Agrega un producto al contador del carrito y actualiza la cantidad y el precio total.
+ * Agrega un producto al carrito guardado y actualiza el resumen.
+ * Si el producto ya existe, aumenta su cantidad.
  * @method agregarAlCarrito
  * @param {HTMLButtonElement} boton - Botón del producto seleccionado.
  * @return {void}
  */
 const agregarAlCarrito = (boton) => {
     const tarjetaProducto = boton.closest(".producto");
+
+    const idProducto = tarjetaProducto.dataset.id;
     const nombreProducto = tarjetaProducto
         .querySelector("h4")
         .textContent
         .trim();
-
     const precioProducto = Number(tarjetaProducto.dataset.precio);
+    const imagenProducto = tarjetaProducto
+        .querySelector("img")
+        .getAttribute("src");
 
-    cantidadCarrito += 1;
-    contadorCarrito.textContent = cantidadCarrito;
+    const carrito = obtenerCarrito();
 
-    totalCarrito += precioProducto;
-    contadorTotalCarrito.textContent =
-        totalCarrito.toLocaleString("es-AR");
+    const productoExistente = carrito.find(
+        (producto) => producto.id === idProducto
+    );
+
+    if (productoExistente) {
+        productoExistente.cantidad += 1;
+    } else {
+        carrito.push({
+            id: idProducto,
+            nombre: nombreProducto,
+            precio: precioProducto,
+            imagen: imagenProducto,
+            cantidad: 1
+        });
+    }
+
+    guardarCarrito(carrito);
+    actualizarResumenCarrito();
 
     alert(`${nombreProducto} fue agregado al carrito.`);
 };
