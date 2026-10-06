@@ -58,3 +58,31 @@ const realizarBusqueda = () => {
     window.location.href =
         `catalogo.html?busqueda=${busquedaCodificada}`;
 };
+
+/**
+ * Muestra en el encabezado la cantidad guardada en el carrito.
+ * @method actualizarContadorGlobal
+ * @return {void} No retorna ningún valor.
+ */
+const actualizarContadorGlobal = () => {
+    const carritoGuardado =
+        localStorage.getItem("escapeLibreCarrito");
+
+    const carrito =
+        carritoGuardado === null
+            ? []
+            : JSON.parse(carritoGuardado);
+
+    const cantidad = carrito.reduce(
+        (total, producto) =>
+            total + producto.cantidad,
+        0
+    );
+
+    const contador =
+        document.getElementById("contador-carrito");
+
+    if (contador !== null) {
+        contador.textContent = cantidad;
+    }
+};
