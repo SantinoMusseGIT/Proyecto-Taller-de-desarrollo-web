@@ -1,383 +1,406 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Santino Mussetti - Aghassi Mingorance" />
-    <meta
-      name="description"
-      content="Catálogo de productos de Escape Libre para la modificación y mejora de vehículos."
-    />
-    <meta
-      name="keywords"
-      content="autopartes, tuning, modificaciones, escapes, admisión, suspensión, frenos"
-    />
-    <title>Catálogo | Escape Libre</title>
+  <!doctype html>
+  <html lang="es">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="author" content="Santino Mussetti - Aghassi Mingorance" />
+      <meta
+        name="description"
+        content="Catálogo de productos de Escape Libre para la modificación y mejora de vehículos."
+      />
+      <meta
+        name="keywords"
+        content="autopartes, tuning, modificaciones, escapes, admisión, suspensión, frenos"
+      />
+      <title>Catálogo | Escape Libre</title>
 
-    <link rel="icon" type="image/png" href="imagenes/Logo Escape Libre.png" />
+      <link rel="icon" type="image/png" href="imagenes/Logo Escape Libre.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Barlow:wght@400;500;600;700&amp;display=swap"
-      rel="stylesheet"
-    />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Barlow:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet"
+      />
 
-    <link rel="stylesheet" href="styles.css" />
-    <script src="Funciones.js" defer></script>
-    <script src="catalogo.js" defer></script>
-  </head>
-  <body>
-    <header id="cabecera">
-      <div class="barra-superior">
-        <h1 class="logo">
-          <a href="index.html">
-            <img src="imagenes/Logo Escape Libre.png" alt="Escape Libre" />
-          </a>
-        </h1>
+      <link rel="stylesheet" href="styles.css" />
+      <script src="Funciones.js" defer></script>
+      <script src="catalogo.js" defer></script>
+    </head>
+    <body>
+      <header id="cabecera">
+        <div class="barra-superior">
+          <h1 class="logo">
+            <a href="index.html">
+              <img src="imagenes/Logo Escape Libre.png" alt="Escape Libre" />
+            </a>
+          </h1>
 
-        <div class="buscador">
-          <label class="solo-lectores" for="busqueda">
-            Buscar productos, marcas o autos
-          </label>
+          <div class="buscador">
+            <label class="solo-lectores" for="busqueda">
+              Buscar productos, marcas o autos
+            </label>
 
-          <input
-            type="text"
-            id="busqueda"
-            name="busqueda"
-            size="30"
-            maxlength="60"
-            placeholder="Buscar productos, marcas, autos..."
-          />
+            <input
+              type="text"
+              id="busqueda"
+              name="busqueda"
+              size="30"
+              maxlength="60"
+              placeholder="Buscar productos, marcas, autos..."
+            />
 
-          <button type="button" onclick="realizarBusqueda()">Buscar</button>
-        </div>
-
-        <div class="acciones">
-          <a href="contacto.html"> Mi cuenta </a>
-
-          <a href="carrito.html">
-            Carrito
-            <span id="cantidad-carrito" aria-live="polite"> 0 </span>
-          </a>
-
-          <p class="carrito-total">
-            Total: $<span id="total-carrito" aria-live="polite">0</span>
-          </p>
-        </div>
-      </div>
-
-      <nav id="menu">
-        <a href="catalogo.html"> Todas las categorías </a>
-
-        <a href="catalogo.html"> Marcas </a>
-
-        <a href="catalogo.html"> Por vehículo </a>
-
-        <a href="catalogo.html"> Ofertas </a>
-
-        <a href="catalogo.html"> Novedades </a>
-
-        <a href="contacto.html"> Contacto </a>
-      </nav>
-    </header>
-    <main class="catalogo-principal">
-      <h2 class="catalogo-titulo">
-        Catálogo de productos
-        <span id="cantidad-resultados" aria-live="polite"> 12 resultados </span>
-      </h2>
-      <div class="catalogo-contenido">
-        <section id="filtros">
-          <h3>Filtros</h3>
-          <label for="categoria">Categoría</label>
-          <select id="categoria" name="categoria">
-            <option value="">Todas las categorías</option>
-            <option value="escapes">Escapes</option>
-            <option value="admision">Admisión</option>
-            <option value="suspension">Suspensión</option>
-            <option value="frenos">Frenos</option>
-            <option value="reprogramacion">Reprogramación</option>
-            <option value="accesorios">Accesorios</option>
-          </select>
-          <label for="busqueda-producto">Buscar producto</label>
-          <input
-            type="text"
-            id="busqueda-producto"
-            name="busquedaProducto"
-            placeholder="Ejemplo: escape deportivo"
-            size="30"
-            maxlength="50"
-          />
-          <button type="button" id="aplicar-filtros" onclick="aplicarFiltros()">
-            Aplicar filtros
-          </button>
-        </section>
-        <section id="productos">
-          <h3>Productos disponibles</h3>
-          <p id="sin-resultados" hidden>
-            No se encontraron productos que coincidan con la búsqueda.
-          </p>
-          <div class="productos-lista">
-            <article
-              class="producto"
-              data-categoria="escapes"
-              data-precio="850000"
-            >
-              <img
-                class="producto-imagen"
-                src="imagenes/Categoria Escape.png"
-                alt="Sistema de escape deportivo"
-              />
-              <h4>Escape deportivo</h4>
-              <p class="producto-descripcion">
-                Escape de alto rendimiento para mejorar el sonido del vehículo.
-              </p>
-              <p class="producto-precio">$850.000</p>
-              <button
-                class="producto-boton"
-                type="button"
-                onclick="agregarAlCarrito(this)"
-              >
-                Agregar al carrito
-              </button>
-            </article>
-            <article
-              class="producto"
-              data-categoria="suspension"
-              data-precio="1200000"
-            >
-              <img
-                class="producto-imagen"
-                src="imagenes/Categoria Suspension.png"
-                alt="Kit de suspensión deportiva"
-              />
-              <h4>Suspensión deportiva</h4>
-              <p class="producto-descripcion">
-                Kit de suspensión para mejorar la estabilidad y reducir la
-                altura del vehículo.
-              </p>
-              <p class="producto-precio">$1.200.000</p>
-              <button
-                class="producto-boton"
-                type="button"
-                onclick="agregarAlCarrito(this)"
-              >
-                Agregar al carrito
-              </button>
-              
-              <article
-              class="producto"
-              data-categoria="escapes"
-              data-precio="750000"
-            >
-              <img
-                class="producto-imagen"
-                src="imagenes/Downpipe hks.png"
-                alt="Downpipe de acero inoxidable"
-              />
-              <h4>Downpipe HKS</h4>
-              <p class="producto-descripcion">
-                Downpipe de acero inoxidable que mejora el flujo de los gases de escape.
-              </p>
-              <p class="producto-precio">$750.000</p>
-              <button
-                class="producto-boton"
-                type="button"
-                onclick="agregarAlCarrito(this)"
-              >
-                Agregar al carrito
-              </button>
-            </article>
-            <article
-              class="producto"
-              data-categoria="admision"
-              data-precio="120000"
-            >
-              <img
-                class="producto-imagen"
-                src="imagenes/Admision Carrito.png"
-                alt="Filtro de aire deportivo rojo"
-              />
-              <h4>Filtro de aire deportivo</h4>
-              <p class="producto-descripcion">
-                Filtro de aire de alto flujo, lavable y reutilizable, para mejorar la respuesta del motor.
-              </p>
-              <p class="producto-precio">$120.000</p>
-              <button
-                class="producto-boton"
-                type="button"
-                onclick="agregarAlCarrito(this)"
-              >
-                Agregar al carrito
-              </button>
-            </article>
-            <article
-              class="producto"
-              data-categoria="admision"
-              data-precio="380000"
-            >
-              <img
-                class="producto-imagen"
-                src="imagenes/Categoria Admision.png"
-                alt="Admisión deportiva"
-              />
-              <h4>Kit de admisión directa</h4>
-              <p class="producto-descripcion">
-                Kit completo de admisión directa para aumentar el ingreso de aire al motor.
-              </p>
-              <p class="producto-precio">$380.000</p>
-              <button
-                class="producto-boton"
-                type="button"
-                onclick="agregarAlCarrito(this)"
-              >
-                Agregar al carrito
-              </button>
-            </article>
-            <article
-              class="producto"
-              data-categoria="suspension"
-              data-precio="290000"
-            >
-              <img
-                class="producto-imagen"
-                src="imagenes/Categoria Suspension.png"
-                alt="Resortes deportivos para suspensión"
-              />
-              <h4>Resortes deportivos</h4>
-              <p class="producto-descripcion">
-                Resortes cortos para bajar la altura del vehículo y mejorar su comportamiento en curva.
-              </p>
-              <p class="producto-precio">$290.000</p>
-              <button
-                class="producto-boton"
-                type="button"
-                onclick="agregarAlCarrito(this)"
-              >
-                Agregar al carrito
-              </button>
-            </article>
-            <article
-              class="producto"
-              data-categoria="frenos"
-              data-precio="600000"
-            >
-              <img
-                class="producto-imagen"
-                src="imagenes/Disco freno pinza roja.png"
-                alt="Disco de freno con pinza roja"
-              />
-              <h4>Discos de freno Brembo</h4>
-              <p class="producto-descripcion">
-                Discos de freno ventilados de alto rendimiento para frenadas más firmes y constantes.
-              </p>
-              <p class="producto-precio">$600.000</p>
-              <button
-                class="producto-boton"
-                type="button"
-                onclick="agregarAlCarrito(this)"
-              >
-                Agregar al carrito
-              </button>
-            </article>
-            <article
-              class="producto"
-              data-categoria="frenos"
-              data-precio="95000"
-            >
-              <img
-                class="producto-imagen"
-                src="imagenes/Categoria Frenos.png"
-                alt="Sistema de frenos deportivos"
-              />
-              <h4>Pastillas de freno cerámicas</h4>
-              <p class="producto-descripcion">
-                Pastillas cerámicas con baja generación de polvo y gran resistencia al calor.
-              </p>
-              <p class="producto-precio">$95.000</p>
-              <button
-                class="producto-boton"
-                type="button"
-                onclick="agregarAlCarrito(this)"
-              >
-                Agregar al carrito
-              </button>
-            </article>
-            <article
-              class="producto"
-              data-categoria="reprogramacion"
-              data-precio="450000"
-            >
-              <img
-                class="producto-imagen"
-                src="imagenes/Categoria Reprogramación.png"
-                alt="Módulo de reprogramación de motor"
-              />
-              <h4>Módulo de reprogramación</h4>
-              <p class="producto-descripcion">
-                Módulo electrónico para ajustar la entrega de potencia del motor.
-              </p>
-              <p class="producto-precio">$450.000</p>
-              <button
-                class="producto-boton"
-                type="button"
-                onclick="agregarAlCarrito(this)"
-              >
-                Agregar al carrito
-              </button>
-            </article>
-            <article
-              class="producto"
-              data-categoria="reprogramacion"
-              data-precio="320000"
-            >
-              <img
-                class="producto-imagen"
-                src="imagenes/Categoria Reprogramación.png"
-                alt="Reprogramación de motor"
-              />
-              <h4>Reprogramación de ECU</h4>
-              <p class="producto-descripcion">
-                Reprogramación de la unidad de control del motor para mejorar el rendimiento.
-              </p>
-              <p class="producto-precio">$320.000</p>
-              <button
-                class="producto-boton"
-                type="button"
-                onclick="agregarAlCarrito(this)"
-              >
-                Agregar al carrito
-              </button>
-            </article>
-            <article
-              class="producto"
-              data-categoria="accesorios"
-              data-precio="240000"
-            >
-              <img
-                class="producto-imagen"
-                src="imagenes/Categoria Accesorios.png"
-                alt="Volante deportivo de cuero"
-              />
-              <h4>Volante deportivo</h4>
-              <p class="producto-descripcion">
-                Volante deportivo de cuero con agarre firme y diseño de menor diámetro.
-              </p>
-              <p class="producto-precio">$240.000</p>
-              <button
-                class="producto-boton"
-                type="button"
-                onclick="agregarAlCarrito(this)"
-              >
-                Agregar al carrito
-              </button>
-            </article>
+            <button type="button" onclick="realizarBusqueda()">Buscar</button>
           </div>
-        </section>
-      </div>
-    </main>
-    <footer>
-      <p>Escape Libre &copy; 2026</p>
-    </footer>
-  </body>
-</html>
+
+          <div class="acciones">
+            <a href="contacto.html"> Mi cuenta </a>
+
+            <a href="carrito.html">
+              Carrito
+              <span id="cantidad-carrito" aria-live="polite"> 0 </span>
+            </a>
+
+            <p class="carrito-total">
+              Total: $<span id="total-carrito" aria-live="polite">0</span>
+            </p>
+          </div>
+        </div>
+
+        <nav id="menu">
+          <a href="catalogo.html"> Todas las categorías </a>
+
+          <a href="catalogo.html"> Marcas </a>
+
+          <a href="catalogo.html"> Por vehículo </a>
+
+          <a href="catalogo.html"> Ofertas </a>
+
+          <a href="catalogo.html"> Novedades </a>
+
+          <a href="contacto.html"> Contacto </a>
+        </nav>
+      </header>
+      <main class="catalogo-principal">
+        <h2 class="catalogo-titulo">
+          Catálogo de productos
+          <span id="cantidad-resultados" aria-live="polite"> 12 resultados </span>
+        </h2>
+        <div class="catalogo-contenido">
+          <section id="filtros">
+            <h3>Filtros</h3>
+            <label for="categoria">Categoría</label>
+            <select id="categoria" name="categoria">
+              <option value="">Todas las categorías</option>
+              <option value="escapes">Escapes</option>
+              <option value="admision">Admisión</option>
+              <option value="suspension">Suspensión</option>
+              <option value="frenos">Frenos</option>
+              <option value="reprogramacion">Reprogramación</option>
+              <option value="accesorios">Accesorios</option>
+            </select>
+            <label for="busqueda-producto">Buscar producto</label>
+            <input
+              type="text"
+              id="busqueda-producto"
+              name="busquedaProducto"
+              placeholder="Ejemplo: escape deportivo"
+              size="30"
+              maxlength="50"
+            />
+            <button type="button" id="aplicar-filtros" onclick="aplicarFiltros()">
+              Aplicar filtros
+            </button>
+          </section>
+          <section id="productos">
+            <h3>Productos disponibles</h3>
+            <p id="sin-resultados" hidden>
+              No se encontraron productos que coincidan con la búsqueda.
+            </p>
+            <div class="productos-lista">
+              <article
+                class="producto"
+                data-categoria="escapes"
+                data-precio="850000"
+              >
+                <img
+                  class="producto-imagen"
+                  src="imagenes/Categoria Escape.png"
+                  alt="Sistema de escape deportivo"
+                />
+                <h4>Escape deportivo</h4>
+                <p class="producto-descripcion">
+                  Escape de alto rendimiento para mejorar el sonido del vehículo.
+                </p>
+                <p class="producto-precio">$850.000</p>
+                <button
+                  class="producto-boton"
+                  type="button"
+                  onclick="agregarAlCarrito(this)"
+                >
+                  Agregar al carrito
+                </button>
+              </article>
+              <article
+                class="producto"
+                data-categoria="suspension"
+                data-precio="1200000"
+              >
+                <img
+                  class="producto-imagen"
+                  src="imagenes/Categoria Suspension.png"
+                  alt="Kit de suspensión deportiva"
+                />
+                <h4>Suspensión deportiva</h4>
+                <p class="producto-descripcion">
+                  Kit de suspensión para mejorar la estabilidad y reducir la
+                  altura del vehículo.
+                </p>
+                <p class="producto-precio">$1.200.000</p>
+                <button
+                  class="producto-boton"
+                  type="button"
+                  onclick="agregarAlCarrito(this)"
+                >
+                  Agregar al carrito
+                </button>
+              </article>
+                <article
+                class="producto"
+                data-categoria="escapes"
+                data-precio="750000"
+              >
+                <img
+                  class="producto-imagen"
+                  src="imagenes/Downpipe hks.png"
+                  alt="Downpipe de acero inoxidable"
+                />
+                <h4>Downpipe HKS</h4>
+                <p class="producto-descripcion">
+                  Downpipe de acero inoxidable que mejora el flujo de los gases de escape.
+                </p>
+                <p class="producto-precio">$750.000</p>
+                <button
+                  class="producto-boton"
+                  type="button"
+                  onclick="agregarAlCarrito(this)"
+                >
+                  Agregar al carrito
+                </button>
+              </article>
+              <article
+                class="producto"
+                data-categoria="admision"
+                data-precio="120000"
+              >
+                <img
+                  class="producto-imagen"
+                  src="imagenes/FiltroAire.png"
+                  alt="Filtro de aire deportivo rojo"
+                />
+                <h4>Filtro de aire deportivo</h4>
+                <p class="producto-descripcion">
+                  Filtro de aire de alto flujo, lavable y reutilizable, para mejorar la respuesta del motor.
+                </p>
+                <p class="producto-precio">$120.000</p>
+                <button
+                  class="producto-boton"
+                  type="button"
+                  onclick="agregarAlCarrito(this)"
+                >
+                  Agregar al carrito
+                </button>
+              </article>
+              <article
+                class="producto"
+                data-categoria="admision"
+                data-precio="380000"
+              >
+                <img
+                  class="producto-imagen"
+                  src="imagenes/Categoria Admision.png"
+                  alt="Admisión deportiva"
+                />
+                <h4>Kit de admisión directa</h4>
+                <p class="producto-descripcion">
+                  Kit completo de admisión directa para aumentar el ingreso de aire al motor.
+                </p>
+                <p class="producto-precio">$380.000</p>
+                <button
+                  class="producto-boton"
+                  type="button"
+                  onclick="agregarAlCarrito(this)"
+                >
+                  Agregar al carrito
+                </button>
+              </article>
+              <article
+                class="producto"
+                data-categoria="suspension"
+                data-precio="290000"
+              >
+                <img
+                  class="producto-imagen"
+                  src="imagenes/Resortes de suspension.png"
+                  alt="Resortes deportivos para suspensión"
+                />
+                <h4>Resortes deportivos</h4>
+                <p class="producto-descripcion">
+                  Resortes cortos para bajar la altura del vehículo y mejorar su comportamiento en curva.
+                </p>
+                <p class="producto-precio">$290.000</p>
+                <button
+                  class="producto-boton"
+                  type="button"
+                  onclick="agregarAlCarrito(this)"
+                >
+                  Agregar al carrito
+                </button>
+              </article>
+              <article
+                class="producto"
+                data-categoria="frenos"
+                data-precio="600000"
+              >
+                <img
+                  class="producto-imagen"
+                  src="imagenes/Disco freno pinza roja.png"
+                  alt="Disco de freno con pinza roja"
+                />
+                <h4>Discos de freno Brembo</h4>
+                <p class="producto-descripcion">
+                  Discos de freno ventilados de alto rendimiento para frenadas más firmes y constantes.
+                </p>
+                <p class="producto-precio">$600.000</p>
+                <button
+                  class="producto-boton"
+                  type="button"
+                  onclick="agregarAlCarrito(this)"
+                >
+                  Agregar al carrito
+                </button>
+              </article>
+              <article
+                class="producto"
+                data-categoria="frenos"
+                data-precio="95000"
+              >
+                <img
+                  class="producto-imagen"
+                  src="imagenes/Categoria Frenos.png"
+                  alt="Sistema de frenos deportivos"
+                />
+                <h4>Pastillas de freno cerámicas</h4>
+                <p class="producto-descripcion">
+                  Pastillas cerámicas con baja generación de polvo y gran resistencia al calor.
+                </p>
+                <p class="producto-precio">$95.000</p>
+                <button
+                  class="producto-boton"
+                  type="button"
+                  onclick="agregarAlCarrito(this)"
+                >
+                  Agregar al carrito
+                </button>
+              </article>
+              <article
+                class="producto"
+                data-categoria="reprogramacion"
+                data-precio="450000"
+              >
+                <img
+                  class="producto-imagen"
+                  src="imagenes/FueltechECU.png"
+                  alt="Módulo de reprogramación de motor"
+                />
+                <h4>Módulo de reprogramación</h4>
+                <p class="producto-descripcion">
+                  Módulo electrónico para ajustar la entrega de potencia del motor.
+                </p>
+                <p class="producto-precio">$2.450.000</p>
+                <button
+                  class="producto-boton"
+                  type="button"
+                  onclick="agregarAlCarrito(this)"
+                >
+                  Agregar al carrito
+                </button>
+              </article>
+              <article
+                class="producto"
+                data-categoria="reprogramacion"
+                data-precio="320000"
+              >
+                <img
+                  class="producto-imagen"
+                  src="imagenes/Categoria Reprogramación.png"
+                  alt="Reprogramación de motor"
+                />
+                <h4>Reprogramación de ECU</h4>
+                <p class="producto-descripcion">
+                  Reprogramación de la unidad de control del motor para mejorar el rendimiento.
+                </p>
+                <p class="producto-precio">$320.000</p>
+                <button
+                  class="producto-boton"
+                  type="button"
+                  onclick="agregarAlCarrito(this)"
+                >
+                  Agregar al carrito
+                </button>
+              </article>
+              <article
+                class="producto"
+                data-categoria="accesorios"
+                data-precio="240000"
+              >
+                <img
+                  class="producto-imagen"
+                  src="imagenes/VolanteMomo.png"
+                  alt="Volante deportivo de cuero"
+                />
+                <h4>Volante deportivo</h4>
+                <p class="producto-descripcion">
+                  Volante deportivo de cuero con agarre firme y diseño de menor diámetro.
+                </p>
+                <p class="producto-precio">$540.000</p>
+                <button
+                  class="producto-boton"
+                  type="button"
+                  onclick="agregarAlCarrito(this)"
+                >
+                  Agregar al carrito
+                </button>
+              </article>
+              <article
+                class="producto"
+                data-categoria="accesorios"
+                data-precio="45000"
+              >
+                <img
+                  class="producto-imagen"
+                  src="imagenes/Shortshifter.png"
+                  alt="Accesorios para autos"
+                />
+                <h4>Pomo de cambio deportivo</h4>
+                <p class="producto-descripcion">
+                  Pomo de cambio de aluminio para un accionamiento más preciso.
+                </p>
+                <p class="producto-precio">$45.000</p>
+                <button
+                  class="producto-boton"
+                  type="button"
+                  onclick="agregarAlCarrito(this)"
+                >
+                  Agregar al carrito
+                </button>
+              </article>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer>
+        <p>Escape Libre &copy; 2026</p>
+      </footer>
+    </body>
+  </html>
