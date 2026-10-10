@@ -84,7 +84,7 @@
     <main class="catalogo-principal">
       <h2 class="catalogo-titulo">
         Catálogo de productos
-        <span id="cantidad-resultados" aria-live="polite"> 2 resultados </span>
+        <span id="cantidad-resultados" aria-live="polite"> 12 resultados </span>
       </h2>
       <div class="catalogo-contenido">
         <section id="filtros">
@@ -96,6 +96,8 @@
             <option value="admision">Admisión</option>
             <option value="suspension">Suspensión</option>
             <option value="frenos">Frenos</option>
+            <option value="reprogramacion">Reprogramación</option>
+            <option value="accesorios">Accesorios</option>
           </select>
           <label for="busqueda-producto">Buscar producto</label>
           <input
@@ -162,7 +164,54 @@
               >
                 Agregar al carrito
               </button>
+              
+              <article
+              class="producto"
+              data-categoria="escapes"
+              data-precio="750000"
+            >
+              <img
+                class="producto-imagen"
+                src="imagenes/Downpipe hks.png"
+                alt="Downpipe de acero inoxidable"
+              />
+              <h4>Downpipe HKS</h4>
+              <p class="producto-descripcion">
+                Downpipe de acero inoxidable que mejora el flujo de los gases de escape.
+              </p>
+              <p class="producto-precio">$750.000</p>
+              <button
+                class="producto-boton"
+                type="button"
+                onclick="agregarAlCarrito(this)"
+              >
+                Agregar al carrito
+              </button>
             </article>
+            <article
+              class="producto"
+              data-categoria="admision"
+              data-precio="120000"
+            >
+              <img
+                class="producto-imagen"
+                src="imagenes/Admision Carrito.png"
+                alt="Filtro de aire deportivo rojo"
+              />
+              <h4>Filtro de aire deportivo</h4>
+              <p class="producto-descripcion">
+                Filtro de aire de alto flujo, lavable y reutilizable, para mejorar la respuesta del motor.
+              </p>
+              <p class="producto-precio">$120.000</p>
+              <button
+                class="producto-boton"
+                type="button"
+                onclick="agregarAlCarrito(this)"
+              >
+                Agregar al carrito
+              </button>
+            </article>
+            
           </div>
         </section>
       </div>
